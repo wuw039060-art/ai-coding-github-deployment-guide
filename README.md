@@ -11,8 +11,6 @@
 <p align="center">AI Coding · Vibe Coding · GitHub · Web Deployment · Linux Server · Docker · Flutter · App Release</p>
 
 <p align="center">
-  <a href="book/从%20GitHub%20到上线-v2.1.0.epub">下载 EPUB</a>
-  ·
   <a href="CONTENTS.md">查看完整目录</a>
 </p>
 
@@ -69,12 +67,9 @@
 
 书中的练习既包括正常操作，也包括范围受控的失败场景。读者可以借此看到不同错误对应的日志和状态。例如网页返回 404 只能说明请求已经到达某个服务，不能证明数据库正常。容器显示正在运行，也不能证明用户能够完成登录。每个结果都要结合它能证明的范围来理解。
 
-## 下载与阅读
+## 内容与阅读
 
-当前公开版本为 `2.1.0`，使用 EPUB 3.3 可重排格式制作，适合在手机、平板和电脑上调整字号阅读。
-
-- [下载《从 GitHub 到上线》EPUB](book/从%20GitHub%20到上线-v2.1.0.epub)
-- [查看完整目录](CONTENTS.md)
+当前版本为 `2.1.0`，全书使用适合手机、平板和电脑阅读的可重排版式制作。[完整目录](CONTENTS.md)列出了十卷、104 章的全部内容。
 
 全书涵盖 AI 编程、Vibe Coding、GitHub 入门、GitHub Desktop、网站部署、域名与 DNS、Vercel、Cloudflare Pages、Linux 服务器、VPS、SSH、Docker、Docker Compose、PostgreSQL、Supabase、Firebase、Flutter、Android、iOS、TestFlight、App Store Connect、日志排错、网络安全、软件测试和独立开发。你可以按顺序通读，也可以从正在处理的问题进入对应章节。
 
