@@ -14,8 +14,6 @@
   <a href="book/从%20GitHub%20到上线-v2.1.0.epub">下载 EPUB</a>
   ·
   <a href="CONTENTS.md">查看完整目录</a>
-  ·
-  <a href="VERIFY.md">查看文件校验信息</a>
 </p>
 
 ## 为什么写这本书
@@ -76,26 +74,18 @@
 当前公开版本为 `2.1.0`，使用 EPUB 3.3 可重排格式制作，适合在手机、平板和电脑上调整字号阅读。
 
 - [下载《从 GitHub 到上线》EPUB](book/从%20GitHub%20到上线-v2.1.0.epub)
-- [单独查看中文封面](assets/cover.png)
-- [核对 EPUBCheck、Calibre 与 SHA-256 结果](VERIFY.md)
+- [查看完整目录](CONTENTS.md)
 
-EPUB 已通过 W3C EPUBCheck 5.3.0 和 Calibre 9.11.0 的结构检查。Apple Books、iPhone、Mac 与 Android 阅读器仍需要真实设备验收，当前文件名保留“Apple Books 优化验证版”的含义，详情见验证说明。
-
-## 相关主题
-
-本项目涉及 AI 编程、AI 辅助开发、Vibe Coding、GitHub 入门、GitHub Desktop、网站部署、静态网站、全栈开发、域名与 DNS、Vercel、Cloudflare Pages、Linux 服务器、VPS、SSH、Docker、Docker Compose、PostgreSQL、Supabase、Firebase、Flutter、Android、iOS、TestFlight、App Store Connect、DevOps、日志排错、网络安全、软件测试和独立开发。
-
-这些词代表书中真正覆盖的内容。项目介绍保留它们，是为了让正在搜索相关问题的人更容易找到这本书，而不是把它包装成可以替代专业文档的万能教程。
+全书涵盖 AI 编程、Vibe Coding、GitHub 入门、GitHub Desktop、网站部署、域名与 DNS、Vercel、Cloudflare Pages、Linux 服务器、VPS、SSH、Docker、Docker Compose、PostgreSQL、Supabase、Firebase、Flutter、Android、iOS、TestFlight、App Store Connect、日志排错、网络安全、软件测试和独立开发。你可以按顺序通读，也可以从正在处理的问题进入对应章节。
 
 ## 反馈
 
 如果你发现术语解释不清、操作界面已经变化、命令存在风险，或者 EPUB 在特定阅读器中显示异常，可以在仓库提交 Issue。反馈时请附上章节、设备或操作系统、软件版本、实际现象和已经尝试的步骤。这些信息能显著减少来回猜测。
 
-## 版本信息
+## 书籍信息
 
 - 书名　《从 GitHub 到上线》
 - 副标题　给非专业开发者的网页、服务器与 App 发布通识指南
 - 作者　stellan
 - 当前版本　2.1.0
-- 格式　EPUB 3.3 可重排布局
 - 规模　十卷、104 章、约 67.8 万中文字符
