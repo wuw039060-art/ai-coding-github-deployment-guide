@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/cover.png" alt="《从 GitHub 到上线》中文封面" width="420">
+  <img src="assets/cover.jpg" alt="《从 GitHub 到上线》中文封面" width="420">
 </p>
 
 <h1 align="center">从 GitHub 到上线</h1>
