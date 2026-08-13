@@ -1,88 +1,106 @@
 <p align="center">
-  <img src="assets/cover.jpg" alt="《从 GitHub 到上线》中文封面" width="420">
+  <img src="assets/cover-v2.2.0-preview.jpg" alt="《AI 写代码之后》中文封面" width="420">
 </p>
 
-<h1 align="center">从 GitHub 到上线</h1>
+<h1 align="center">AI 写代码之后</h1>
 
-<p align="center">给非专业开发者的网页、服务器与 App 发布通识指南</p>
+<p align="center">给非专业开发者的 AI Coding 工程手册</p>
 
-<p align="center"><strong>作者 stellan</strong></p>
+<p align="center"><strong>作者 Stellan</strong></p>
 
-<p align="center">AI Coding · Vibe Coding · GitHub · Web Deployment · Linux Server · Docker · Flutter · App Release</p>
+<p align="center">AI Coding · Vibe Coding · GitHub · Web 部署 · Linux · Docker · 数据库 · Flutter · App 发布</p>
 
 <p align="center">
-  <a href="https://github.com/wuw039060-art/ai-coding-github-deployment-guide/raw/refs/heads/main/从%20GitHub%20到上线-v2.1.0.epub"><strong>下载 EPUB 电子书</strong></a>
-  ·
-  <a href="CONTENTS.md">查看完整目录</a>
+  <img src="https://img.shields.io/badge/版本-2.2.0-176875" alt="当前版本 2.2.0">
+  <img src="https://img.shields.io/badge/正文-10%20卷%20·%20104%20章-284b63" alt="全书十卷 104 章">
+  <img src="https://img.shields.io/badge/核心格式-EPUB%203.3%20·%20PDF-9c6644" alt="核心格式 EPUB 3.3 和 PDF">
+  <img src="https://img.shields.io/badge/语言-简体中文-b23a48" alt="语言 简体中文">
 </p>
 
-## 为什么写这本书
+<p align="center">
+  <a href="START-HERE.md"><strong>从这里开始</strong></a> ·
+  <a href="https://github.com/wuw039060-art/ai-coding-github-deployment-guide/releases/download/V2.2.0/AI.-v2.2.0.epub">EPUB</a> ·
+  <a href="https://github.com/wuw039060-art/ai-coding-github-deployment-guide/releases/download/V2.2.0/AI.-v2.2.0.pdf">PDF</a> ·
+  <a href="https://github.com/wuw039060-art/ai-coding-github-deployment-guide/releases/tag/V2.2.0">全部格式</a> ·
+  <a href="FORMATS.md">格式说明</a> ·
+  <a href="CONTENTS.md">完整目录</a>
+</p>
 
-越来越多人的第一次编程经历，直接从一句交给 AI 的需求开始，他们此前没有经过课堂、教材或手写代码的训练。AI 可以在很短的时间里生成网页、后端、数据库配置和手机 App，也能继续修改错误、补充功能并完成部署。门槛确实降低了，新的问题也随之出现。一个人可能已经拿到看起来完整的项目，却不知道 GitHub 仓库保存了什么，不清楚 Commit 和 Push 的区别，也说不明白服务器、域名、环境变量、构建日志和运行日志分别处在什么位置。
+<p align="center"><strong>如果这本书正好补上了你在 AI Coding 之后不知道怎样真正交付产品的知识空白，欢迎 ⭐ Star 收藏，方便以后回来查。</strong></p>
 
-当 AI 产出的内容无法运行，很多初学者只能继续把错误截图发给 AI，反复要求它再改一次。项目偶然上线以后，他们仍然难以判断修改是否安全、密钥有没有泄露、数据库能不能恢复、应用商店为什么拒绝上传。这里缺少的并不只是几条命令，而是一套足够支撑沟通、检查和决策的基础认识。
-
-量化交易提供了一个很容易理解的参照。算法可以给出答案，长期观察市场形成的经验仍会影响一个人面对重大决策时的判断。AI 编程也有相似的一面。你不必重新走完专业程序员的全部训练，也不必拒绝 AI 带来的效率，但应该亲手经历仓库创建、版本提交、本地运行、部署、看日志、排错和恢复。做过这些事情以后，你才能知道一个成功状态究竟证明了什么，也能发现 AI 省略了哪些检查。
-
-这本书因此选择补上 AI 生成代码与真实产品之间的空白。它不以培养专业程序员或运维工程师为目标，而是帮助缺少科班训练的 AI Coding 使用者建立一张完整的工程地图。读完以后，你应该更容易描述需求、理解术语、限制修改范围、核对验证证据，并把一个本地项目稳妥地推进到网页、服务器或应用商店。
-
-## 它想解决的问题
-
-- AI 修改了很多文件，却不知道哪些变化真正对应自己的需求
-- 会让 AI 生成代码，却不会创建 GitHub 仓库、提交版本或恢复改坏的内容
-- 分不清前端、后端、API、数据库、部署平台和服务器各自负责什么
-- 网页打不开时，只知道继续改代码，不会检查 DNS、HTTP 状态码、构建日志和运行日志
-- 会复制 SSH、Linux 或 Docker 命令，却不知道命令在哪里运行、成功后应看到什么
-- 项目能启动，却无法判断密钥、权限、备份、端口和数据库暴露是否安全
-- Flutter 项目已经生成，却不理解 Android 签名、AAB、TestFlight 和商店审核
-- AI 声称任务完成以后，不知道应该检查 Diff、测试、日志、回滚方案还是实际用户路径
-- 想把作品做成可长期维护的商用产品，却缺少成本、故障、安全和更新方面的基本判断
+这是一套为非科班 AI Coding 使用者重新组织的软件工程学习与参考体系。它从一个直接的问题展开。AI 已经把代码写出来了，然后呢？你怎样看懂它修改了什么，怎样把项目交给真实用户，怎样定位错误，又怎样判断一句“已经完成”究竟有多少证据。
 
 ## 这本书写给谁
 
-这本书主要写给从 AI 编程起步的人，也适合独立开发者、产品经理、设计师、内容创作者和需要与技术团队协作的创业者。你可以不会写复杂代码，但应该愿意亲手完成少量关键操作，并根据实际结果作出判断。
+你可能已经借助 ChatGPT、Codex、Claude Code、Cursor、GitHub Copilot、Replit、Lovable、Bolt 或其他 AI Coding 工具做出了网站、App、自动化工具和个人软件。你能描述想法，也能让 AI 快速执行，但没有经过系统的计算机专业训练。仓库、接口、环境变量、服务器、数据库、容器、签名和日志已经出现在项目里，它们之间的关系仍然不够清楚。
 
-如果你正在使用 ChatGPT、Codex、Claude Code、Cursor、GitHub Copilot、Replit、Lovable、Bolt 或其他 AI Coding 工具制作网站和软件，书中的知识可以帮助你把提示词以外的环节连接起来。工具会变化，仓库、构建、网络、服务器、日志、安全和发布这些基本关系不会因为界面更新而消失。
+本书也适合需要直接参与软件交付的产品经理、设计师、内容创作者、独立开发者和创业者。你不必先会写复杂代码，但需要愿意亲手完成少量关键操作，并用实际结果判断项目状态。
 
-## 全书讲什么
+## 你可能正卡在两种学习方式之间
 
-全书共十卷、104 章，正文约 67.8 万中文字符。内容从软件如何来到用户面前开始，逐步进入 GitHub、Web 系统、网页部署、后端和数据库、Linux 服务器、Docker、Flutter、应用商店、日志排错、安全维护，以及与 AI 协作时的工程判断。
+传统计算机专业路线完整而有价值，学习周期和理论深度却未必匹配眼前问题。你今天也许只想弄清楚 `.env` 为什么让部署失败，暂时没有条件先学完操作系统、网络、数据库和算法。
 
-| 分卷 | 核心内容 | 读完能够处理的事情 |
+完全依赖 AI 的路线起步很快。项目变复杂以后，你会发现 AI 可以一次修改几十个文件，也可以引入数据库、缓存、队列和容器，却无法替你承担所有判断。构建成功不等于产品正常，容器运行不等于用户可用，测试通过也不等于不存在其他缺陷。
+
+## 本书提供的第三条路
+
+《AI 写代码之后》按照 AI Coding 的真实工作顺序筛选知识。它不会把传统教材简单缩短，也不会只教按钮位置。每个专题会解释技术在系统中的位置、AI 为什么可能修改它、故障会留下什么迹象、当前需要理解到哪一层，以及什么证据可以支持下一步判断。
+
+目标并非让一本书替代计算机专业训练。更准确的目标是，在常见 AI Coding 场景中，尽量缩小由基础工程认知造成的使用能力差距。你会逐渐更准确地描述问题、阅读主要 Diff、检查日志、限制修改范围、识别明显风险，并知道什么时候需要继续查官方资料或请专业人士加入。
+
+## 我需要读完整本书吗
+
+不需要。全书有十卷、104 章，适合系统学习，也适合作为工作中的参考手册。第一次阅读可以从约 8.7 万中文字符的十五章核心路线开始。正在做网站、App 或服务器项目的读者，可以沿对应项目路线阅读。遇到具体问题时，也可以直接按 `CORS`、`502`、`Volume`、`journalctl`、`AAB` 或 `TestFlight` 等术语查询。
+
+具体路线见 [START-HERE.md](START-HERE.md)。完整章节名称见 [CONTENTS.md](CONTENTS.md)。
+
+## 视频、AI 和本书怎样配合
+
+界面操作第一次跟着视频做，通常更快。配套视频会帮助你辨认 GitHub Desktop、DevTools、SSH、Docker Compose、部署平台和 App 发布界面。本书负责连接概念、解释原因、划清成功状态的证明范围。AI 则可以结合你的真实项目继续解释、执行和反馈。
+
+视频用于帮助看懂，官方文档和经过验证的实际行为负责确认事实。视频内容与当前官方资料冲突时，以后者为准。已核验的观看区间、前置准备和跟做任务见 [LEARNING-RESOURCES.md](LEARNING-RESOURCES.md)。
+
+## 全书覆盖范围
+
+| 分卷 | 核心内容 | 建立的能力 |
 | --- | --- | --- |
-| 第一卷 | 本地电脑、GitHub、部署平台、服务器和用户设备 | 看懂软件发布链路，知道问题可能发生在哪一层 |
-| 第二卷 | Git、GitHub、GitHub Desktop、分支、冲突和秘密保护 | 保存版本、审查变化、同步项目并避免提交敏感信息 |
-| 第三卷 | 浏览器、DNS、HTTP、Cookie、API 和 DevTools | 看懂网页请求，利用 Console 和 Network 定位问题 |
-| 第四卷 | GitHub Pages、Cloudflare Pages、Vercel、Render 和域名 | 把网页发布到互联网，检查构建日志并完成回滚 |
-| 第五卷 | 后端、身份认证、数据库、对象存储和 BaaS | 理解动态产品的数据流、安全边界和托管选择 |
-| 第六卷 | VPS、SSH、Linux、systemd、防火墙和反向代理 | 登录服务器、查看服务和日志，理解长期维护责任 |
-| 第七卷 | Docker、Dockerfile、Volume 和 Docker Compose | 部署多容器应用，处理日志、持久化、更新和清理风险 |
-| 第八卷 | Flutter、Android 签名、AAB、Xcode 和 TestFlight | 理解 App 打包、测试、上传、审核和更新流程 |
-| 第九卷 | 故障定位、日志、安全、备份、监控和维护 | 从现象找到故障层级，向 AI 提供完整证据并安全恢复 |
-| 第十卷 | AI 协作、架构、测试、可靠性、方案选择和项目治理 | 检查 AI 的完成声明，控制范围、依赖和长期复杂度 |
+| 第一卷 | 软件从本地来到用户面前 | 看懂交付链路和故障层级 |
+| 第二卷 | Git、GitHub 与项目版本 | 审查变化、保留版本并保护秘密 |
+| 第三卷 | 浏览器、DNS、HTTP 与 API | 看懂请求并使用 DevTools 收集证据 |
+| 第四卷 | 构建、网页部署、域名与回滚 | 把网站交付到互联网并核对环境 |
+| 第五卷 | 后端、认证、数据库与托管服务 | 理解动态产品的数据流和权限边界 |
+| 第六卷 | VPS、SSH、Linux 与反向代理 | 查看服务与日志，理解自建责任 |
+| 第七卷 | Docker、Compose 与数据持久化 | 管理容器并避免误删持久数据 |
+| 第八卷 | Flutter、签名、测试与应用商店 | 理解 Android 和 iOS 发布流程 |
+| 第九卷 | 排错、安全、备份与维护 | 从现象寻找证据并准备恢复 |
+| 第十卷 | AI 协作、测试、架构与治理 | 检查 AI 的完成声明并控制复杂度 |
 
-完整章节名称见 [CONTENTS.md](CONTENTS.md)。
+## 阅读格式
 
-## 这本书怎样使用例子和配图
+核心格式为可重排 EPUB 和可搜索 PDF。另提供 AZW3、KEPUB、FB2、DOCX、RTF、TXT、HTMLZ 和 Legacy MOBI。现代 Kindle 用户优先把 EPUB 发送到 Send to Kindle，MOBI 只用于旧设备兼容。
 
-正文不把视频或图片当成解释的替代品。关键流程会先用文字讲清楚，再配合系统地图、请求流程、部署路线、Docker 数据持久化图、App 发布流程和故障树。需要观察界面变化的操作，才会推荐 GitHub Desktop、Chrome DevTools、SSH、Docker Compose、部署平台控制台和 Flutter 发布视频。
+不知道选什么时，优先使用 EPUB。iPhone、iPad 和 Apple Books 适合 EPUB。Windows 与 macOS 适合 PDF 或 EPUB。详细选择说明见 [FORMATS.md](FORMATS.md)。
 
-书中的练习既包括正常操作，也包括范围受控的失败场景。读者可以借此看到不同错误对应的日志和状态。例如网页返回 404 只能说明请求已经到达某个服务，不能证明数据库正常。容器显示正在运行，也不能证明用户能够完成登录。每个结果都要结合它能证明的范围来理解。
+## 为什么开源
 
-## 内容与阅读
+这本书希望让更多人借助 AI 获得解决真实问题的能力。开放阅读、多格式发布和公开修正记录，可以降低学习门槛，也让过时界面、事实错误和遗漏更容易被发现。
 
-当前版本为 `2.1.0`，全书使用适合手机、平板和电脑阅读的可重排版式制作。你可以[直接下载 EPUB 电子书](https://github.com/wuw039060-art/ai-coding-github-deployment-guide/raw/refs/heads/main/从%20GitHub%20到上线-v2.1.0.epub)，也可以先查看包含十卷、104 章的[完整目录](CONTENTS.md)。
+## 反馈与联系
 
-全书涵盖 AI 编程、Vibe Coding、GitHub 入门、GitHub Desktop、网站部署、域名与 DNS、Vercel、Cloudflare Pages、Linux 服务器、VPS、SSH、Docker、Docker Compose、PostgreSQL、Supabase、Firebase、Flutter、Android、iOS、TestFlight、App Store Connect、日志排错、网络安全、软件测试和独立开发。你可以按顺序通读，也可以从正在处理的问题进入对应章节。
+发现事实错误、工具界面变化、失效链接或阅读器兼容问题时，欢迎提交 Issue。请尽量附上章节、设备、软件版本、实际现象和已经尝试的步骤。也可以发邮件至 [wuw039060@gmail.com](mailto:wuw039060@gmail.com)。
 
-## 反馈
+如果希望接收仓库活动通知，请使用 GitHub 的 Watch。Star 适合收藏和表达兴趣，不会自动订阅仓库通知。
 
-如果你发现术语解释不清、操作界面已经变化、命令存在风险，或者 EPUB 在特定阅读器中显示异常，可以在仓库提交 Issue。反馈时请附上章节、设备或操作系统、软件版本、实际现象和已经尝试的步骤。这些信息能显著减少来回猜测。
+## ⭐ 如果这本书对你有帮助
+
+如果这本书帮你解决过一个实际问题，或者让你第一次看懂 GitHub、部署、服务器、Docker、数据库或 App 发布中的某个环节，欢迎给这个仓库一个 Star。
+
+Star 对我最重要的意义，是让我知道这套内容确实有人在使用，也让我更有依据决定哪些章节值得继续更新和完善。更具体的错误和改进建议，欢迎通过 Issue 或邮件告诉我。
 
 ## 书籍信息
 
-- 书名　《从 GitHub 到上线》
-- 副标题　给非专业开发者的网页、服务器与 App 发布通识指南
-- 作者　stellan
-- 当前版本　2.1.0
+- 书名　《AI 写代码之后》
+- 副标题　给非专业开发者的 AI Coding 工程手册
+- 作者　Stellan
+- 当前版本　2.2.0
 - 规模　十卷、104 章、约 67.8 万中文字符
