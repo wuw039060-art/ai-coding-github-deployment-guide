@@ -33,6 +33,8 @@ MOBI 只作为旧设备兼容格式。现代 Kindle 用户优先使用 EPUB 和 
 - [全部 Release 附件](https://github.com/wuw039060-art/ai-coding-github-deployment-guide/releases/tag/V2.2.0)
 - [SHA-256 校验值](SHA256SUMS.txt)
 
+校验值对应本页列出的下载入口。部分格式在仓库根目录也有上传副本，校验时请使用上面的链接下载，避免混用不同批次的同名文件。
+
 ## 历史版本
 
 仓库根目录保留《从 GitHub 到上线》2.1.0 EPUB，供旧链接和历史记录继续使用。第一次下载请直接选择当前 2.2.0 版本。
