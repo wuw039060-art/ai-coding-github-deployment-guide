@@ -11,6 +11,8 @@
 <p align="center">AI Coding · Vibe Coding · GitHub · Web Deployment · Linux Server · Docker · Flutter · App Release</p>
 
 <p align="center">
+  <a href="https://github.com/wuw039060-art/ai-coding-github-deployment-guide/raw/refs/heads/main/从%20GitHub%20到上线-v2.1.0.epub"><strong>下载 EPUB 电子书</strong></a>
+  ·
   <a href="CONTENTS.md">查看完整目录</a>
 </p>
 
@@ -69,7 +71,7 @@
 
 ## 内容与阅读
 
-当前版本为 `2.1.0`，全书使用适合手机、平板和电脑阅读的可重排版式制作。[完整目录](CONTENTS.md)列出了十卷、104 章的全部内容。
+当前版本为 `2.1.0`，全书使用适合手机、平板和电脑阅读的可重排版式制作。你可以[直接下载 EPUB 电子书](https://github.com/wuw039060-art/ai-coding-github-deployment-guide/raw/refs/heads/main/从%20GitHub%20到上线-v2.1.0.epub)，也可以先查看包含十卷、104 章的[完整目录](CONTENTS.md)。
 
 全书涵盖 AI 编程、Vibe Coding、GitHub 入门、GitHub Desktop、网站部署、域名与 DNS、Vercel、Cloudflare Pages、Linux 服务器、VPS、SSH、Docker、Docker Compose、PostgreSQL、Supabase、Firebase、Flutter、Android、iOS、TestFlight、App Store Connect、日志排错、网络安全、软件测试和独立开发。你可以按顺序通读，也可以从正在处理的问题进入对应章节。
 
