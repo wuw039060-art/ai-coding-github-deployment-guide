@@ -15,6 +15,7 @@ if __package__ in {None, ""}:
 
 from scripts.booklib.source_writer import SourceWriteError, write_source
 from scripts.booklib.audit import AuditReport, audit_source
+from scripts.booklib.editorial import EditorialReport, evaluate_editorial, load_editorial_plan
 from scripts.booklib.pilot import PilotReport, validate_pilot
 from scripts.booklib.verify import VerificationReport, verify_source
 
@@ -45,6 +46,13 @@ def _parser() -> argparse.ArgumentParser:
     pilot = commands.add_parser("pilot", help="validate the six-chapter reduction pilot")
     pilot.add_argument("--book", default=Path("book"), type=Path)
     pilot.add_argument("--report", default=Path("PILOT-v2.3.md"), type=Path)
+    progress = commands.add_parser("progress", help="validate volume editorial budgets")
+    progress.add_argument("--book", default=Path("book"), type=Path)
+    progress.add_argument(
+        "--plan", default=Path("book/editorial-plan.json"), type=Path
+    )
+    progress.add_argument("--completed-volumes", default="")
+    progress.add_argument("--report", default=Path("EDITORIAL-v2.3.md"), type=Path)
     return parser
 
 
@@ -268,6 +276,50 @@ def _write_pilot_report(report: PilotReport, *, destination: Path) -> None:
     destination.write_text("\n".join(lines), encoding="utf-8", newline="\n")
 
 
+def _write_editorial_report(
+    report: EditorialReport, *, version: str, destination: Path
+) -> None:
+    status = "PASS" if not report.errors else "FAIL"
+    lines = [
+        f"# 《AI 写代码之后》v{version} Editorial Progress",
+        "",
+        f"**Status:** {status}",
+        "",
+        "| Volume | Baseline | Current | Reduction | Target | Status |",
+        "|---:|---:|---:|---:|---:|---|",
+    ]
+    for item in report.volumes:
+        target = item.target
+        lines.append(
+            f"| {target.id} | {target.baseline} | {item.current} | "
+            f"{item.reduction_percent:.2f}% | {target.minimum}–{target.maximum} | "
+            f"{item.status} |"
+        )
+    lines.extend(
+        [
+            "",
+            f"- Current total: {report.current_total}",
+            "",
+            "## Errors",
+            "",
+        ]
+    )
+    lines.extend(f"- {item}" for item in report.errors)
+    if not report.errors:
+        lines.append("- None")
+    lines.append("")
+    destination.write_text("\n".join(lines), encoding="utf-8", newline="\n")
+
+
+def _completed_volumes(value: str) -> frozenset[int]:
+    if not value.strip():
+        return frozenset()
+    try:
+        return frozenset(int(item.strip()) for item in value.split(",") if item.strip())
+    except ValueError as exc:
+        raise ValueError(f"invalid completed volume list: {value}") from exc
+
+
 def main(argv: list[str] | None = None) -> int:
     args = _parser().parse_args(argv)
     try:
@@ -343,6 +395,26 @@ def main(argv: list[str] | None = None) -> int:
                         "chapters": len(report.chapters),
                         "errors": len(report.errors),
                         "report": str(args.report),
+                    },
+                    ensure_ascii=False,
+                    sort_keys=True,
+                )
+            )
+            return 1 if report.errors else 0
+        if args.command == "progress":
+            plan = load_editorial_plan(args.plan)
+            report = evaluate_editorial(
+                args.book, plan, _completed_volumes(args.completed_volumes)
+            )
+            _write_editorial_report(
+                report, version=plan.version, destination=args.report
+            )
+            print(
+                json.dumps(
+                    {
+                        "errors": len(report.errors),
+                        "report": str(args.report),
+                        "total": report.current_total,
                     },
                     ensure_ascii=False,
                     sort_keys=True,

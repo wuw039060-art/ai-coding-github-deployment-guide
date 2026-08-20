@@ -1,0 +1,20 @@
+{
+  "version": "2.3.0",
+  "baseline_visible_chars": 710456,
+  "target_total": {
+    "minimum": 380000,
+    "maximum": 420000
+  },
+  "volumes": [
+    {"id": 1, "baseline": 32720, "minimum": 21172, "maximum": 24059},
+    {"id": 2, "baseline": 56424, "minimum": 34428, "maximum": 38254},
+    {"id": 3, "baseline": 63814, "minimum": 35144, "maximum": 38843},
+    {"id": 4, "baseline": 54147, "minimum": 30683, "maximum": 34293},
+    {"id": 5, "baseline": 49538, "minimum": 26538, "maximum": 30077},
+    {"id": 6, "baseline": 74398, "minimum": 36334, "maximum": 41524},
+    {"id": 7, "baseline": 50858, "minimum": 29062, "maximum": 32694},
+    {"id": 8, "baseline": 70723, "minimum": 37223, "maximum": 42806},
+    {"id": 9, "baseline": 67679, "minimum": 38674, "maximum": 42541},
+    {"id": 10, "baseline": 190155, "minimum": 79600, "maximum": 88444}
+  ]
+}
