@@ -32,16 +32,20 @@
 
 ## v2.3 修订状态
 
-当前正式发布版仍是 2.2.0。仓库中的 [`book/`](book/) 是从 v2.2.0 EPUB 确定性恢复的 104 章 Markdown 基线，用于开展 v2.3 减重修订；它不代表 v2.3 正文已经完成，也不改变现有 2.2.0 下载入口。
+当前正式发布版仍是 2.2.0。仓库中的 [`book/`](book/) 以从 v2.2.0 EPUB 确定性恢复的 104 章 Markdown 为基线，正在开展 v2.3 减重修订；它不代表 v2.3 全书正文已经完成，也不改变现有 2.2.0 下载入口。
 
-本轮修订保留十卷、104 章、原编号和高级知识，目标是通过系统性压缩、去重和外置操作细节，把主 PDF 控制在 450–500 页。恢复与审计结果见 [`VERIFICATION.md`](VERIFICATION.md) 和 [`AUDIT-v2.3.md`](AUDIT-v2.3.md)，完整设计与执行计划位于 [`docs/superpowers/`](docs/superpowers/)。
+本轮修订保留十卷、104 章、原编号和高级知识，目标是通过系统性压缩、去重和外置操作细节，把主 PDF 控制在 450–500 页。第 1、19、40、54、70、91 章已经完成跨类型试改：合计从 51,714 个可见字符压缩到 28,488，减重 44.91%，六章各自都在 40%–45% 目标区间内。该结果验证了写法，不等于其余 98 章已经修订。
+
+源恢复基线见 [`AUDIT-v2.3.md`](AUDIT-v2.3.md)，当前结构验证见 [`VERIFICATION.md`](VERIFICATION.md)，六章结果见 [`PILOT-v2.3.md`](PILOT-v2.3.md)。操作细节已开始迁入 [`references/`](references/)；完整设计与执行计划位于 [`docs/superpowers/`](docs/superpowers/)。
 
 维护者可以运行：
 
 ```bash
 make source   # 仅在 book/ 与恢复基线相同时重复验证；检测到编辑后拒绝覆盖
-make verify   # 校验 104 章、标题、链接、图片和 EPUB 文本保真度
-make audit    # 重新生成只读减重审计基线
+make verify   # 编辑态校验：104 章、标题、链接、图片和清单结构
+make verify-recovery # 恢复态校验：另加 EPUB 文本差异不超过 0.5% 门槛
+make pilot    # 校验六章各自减重区间并生成 PILOT-v2.3.md
+make audit    # 仅用于重新冻结恢复基线；编辑后不要覆盖 AUDIT-v2.3.md
 make test     # 运行恢复、转换、验证和审计测试
 ```
 

@@ -59,16 +59,19 @@ def _write_verification_report(
     epub: Path,
     txt: Path,
     destination: Path,
+    recovery_fidelity: bool,
 ) -> None:
     status = "PASS" if not report.errors else "FAIL"
     metrics = report.metrics
+    scope = "Recovery fidelity" if recovery_fidelity else "Editorial structure"
     lines = [
         f"# v{version} Verification",
         "",
         f"**Status:** {status}",
         "",
-        "## Recovery baseline",
+        f"## {scope}",
         "",
+        f"- Recovery fidelity enforced: {'yes' if recovery_fidelity else 'no'}",
         f"- EPUB: `{epub.name}`",
         f"- EPUB SHA256: `{_file_sha256(epub)}`",
         f"- TXT: `{txt.name}`",
@@ -295,6 +298,7 @@ def main(argv: list[str] | None = None) -> int:
                 epub=args.epub,
                 txt=args.txt,
                 destination=args.report,
+                recovery_fidelity=args.recovery_fidelity,
             )
             print(
                 json.dumps(

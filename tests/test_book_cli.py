@@ -131,8 +131,14 @@ class BookCliTests(unittest.TestCase):
 
             self.assertEqual(editorial.returncode, 0, editorial.stderr)
             self.assertEqual(recovery.returncode, 1, recovery.stderr)
-            self.assertIn("PASS", (root / "editorial.md").read_text(encoding="utf-8"))
-            self.assertIn("FAIL", (root / "recovery.md").read_text(encoding="utf-8"))
+            editorial_text = (root / "editorial.md").read_text(encoding="utf-8")
+            recovery_text = (root / "recovery.md").read_text(encoding="utf-8")
+            self.assertIn("PASS", editorial_text)
+            self.assertIn("## Editorial structure", editorial_text)
+            self.assertIn("Recovery fidelity enforced: no", editorial_text)
+            self.assertIn("FAIL", recovery_text)
+            self.assertIn("## Recovery fidelity", recovery_text)
+            self.assertIn("Recovery fidelity enforced: yes", recovery_text)
 
     def test_audit_command_writes_baseline_tables(self):
         """The audit CLI must preserve chapter and volume baselines for editors."""
