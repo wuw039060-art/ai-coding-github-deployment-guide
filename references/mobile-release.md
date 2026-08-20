@@ -1,8 +1,74 @@
-# Android / Google Play 发布清单
+# 移动应用签名、测试与发布参考
 
-这份参考用于 Google Play 的操作准备。控制台页面、账号资格、测试人数、持续时间、目标 API、审核问卷和地区规则都会变化；每次真实发布都应在当天打开 Play Console 与官方帮助重新核对。下面出现的日期或数字只代表 v2.2 原稿冻结时的政策样例，不是当前承诺。
+这份参考用于 Android / Google Play 和 iOS / App Store 的操作准备。控制台页面、账号资格、测试人数、持续时间、构建工具、审核问卷和地区规则都会变化；每次真实发布都应在当天打开平台控制台与官方帮助重新核对。下面出现的日期或数字只代表 v2.2 原稿冻结时的政策样例，不是当前承诺。微信小程序不走这两家应用商店，单独见[《微信小程序开发、体验、审核与发布参考》](wechat-miniprogram.md)。
 
-## 发布身份卡
+## 先区分共同模型与平台身份
+
+两条发布线都包含应用身份、签名身份、递增构建、测试人群、商店资料、审核和上线观察，但凭据不能混用：
+
+| 关系 | Android | iOS |
+|---|---|---|
+| 应用身份 | package name / applicationId | Bundle ID |
+| 用户版本 | versionName | Version |
+| 每次上传身份 | versionCode | Build number |
+| 交付产物 | 签名 AAB | Archive / 上传的 build |
+| 测试入口 | Play 测试轨道 | TestFlight 组 |
+| 发布控制台 | Play Console | App Store Connect |
+
+上传成功只是平台收到构建，不代表完成处理、通过测试、进入审核或已经对用户可用。每一步保存构建身份和平台状态。
+
+## iOS 发布身份卡
+
+```text
+Apple 开发者主体 / Team ID：
+App Store Connect 应用记录：
+Bundle ID：
+Version / Build：
+Xcode / SDK / macOS：
+签名证书用途：开发 / 分发
+Provisioning Profile / 自动签名：
+Capabilities / Entitlements：
+发布方式：TestFlight / App Store
+测试组与设备：
+后端环境与版本：
+Archive 路径 / 构建校验信息：
+```
+
+Apple Account、开发者会员、Team、证书、Bundle ID、Capabilities 与 Provisioning Profile 是相互关联但不同的对象。第一次发布优先让 Xcode 自动管理签名；出现问题时按 Team、Bundle ID、证书私钥、设备/分发用途和权限能力逐项核对，不随机重建所有凭据。
+
+## iOS 从 Archive 到发布
+
+1. App Store Connect 先创建与 Bundle ID 对应的应用记录。
+2. 在真机验证 Release 配置、版本、Build、权限说明和生产后端。
+3. 用 Xcode Archive；在 Organizer 中核对 Team、Bundle ID、Version 和 Build。
+4. 选择符合目的的分发方式并上传，保存 Organizer 或交付日志。
+5. 等待 App Store Connect Processing；处理失败与“仍在等待”分开排查。
+6. 回答 Export Compliance 等实际适用问题，把 build 加入内部 TestFlight 组。
+7. 测试首次安装、旧版升级、登录、核心读写、权限拒绝、弱网与崩溃反馈。
+8. 需要外部测试时提供 What to Test、测试账号与环境条件，并完成 Beta Review。
+9. 选择验证过的 build，补齐版本资料与审核说明，确认真正提交 App Review。
+10. 按批准的自动、手动或分阶段方式发布，观察客户端与后端。
+
+Archive succeeded、upload succeeded、Processing 完成、Ready to Test、进入审核和商店可用是不同状态。构建没有出现时先确认正确 Team 和应用，再比对 Bundle ID、Version、Build 与交付历史。相同 Build 不能靠改文件名重新上传。
+
+## TestFlight 与审核清单
+
+- 内部测试者属于 App Store Connect 团队；只为测试加入的人使用最低角色并在结束后移除。
+- 外部测试者、公开链接、测试期限和人数属于易变规则，以当前账号页面为准。
+- What to Test 写具体任务、已知限制和反馈入口，不写“请测试”。
+- 测试反馈关联 Version、Build、设备、系统、时间和步骤；崩溃符号化要匹配正确 Archive 与 dSYM。
+- 审核账号在审核地区、时区和网络中可用，不依赖办公室 IP 或夜间关闭的测试环境。
+- Resolution Center 回复原始问题、修复位置和复现步骤，不生成未经确认的政策承诺。
+- App Store 没有把已安装坏 build 直接降回旧二进制的传统回滚；分阶段发布、后端兼容、功能开关与更高 Build 修复共同构成恢复能力。
+
+## iOS 视频入口
+
+- `VID-008`：Release an iOS app with Flutter in 7 steps，用于辨认 Bundle ID、应用记录、Archive 与上传。
+- `VID-009`：TestFlight & Xcode — Upload, Distribute, and Beta Test Your iOS App In Under 10 Minutes! (2025)，用于辨认测试组和设备安装。
+
+完整卡片和二维码索引见[视频跟做卡与术语索引](video-glossary.md)。视频不替代 Apple 当前构建要求和审核资料。
+
+## Android / Google Play 发布身份卡
 
 ```text
 Play 开发者主体：
@@ -135,4 +201,3 @@ AAB 校验和：
 ## 视频入口
 
 - Play Console 页面辨认：[How to Publish Flutter App on Google Play Store. Build, Release & Deploy App in 2026](https://www.youtube.com/watch?v=adt9A8125S4&t=50s)。视频从创建应用走向发布；练习时必须把目标改为内部测试，所有政策字段以自己的当前控制台为准。
-
