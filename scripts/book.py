@@ -14,6 +14,7 @@ if __package__ in {None, ""}:
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from scripts.booklib.source_writer import SourceWriteError, write_source
+from scripts.booklib.audit import AuditReport, audit_source
 from scripts.booklib.verify import VerificationReport, verify_source
 
 
@@ -31,6 +32,10 @@ def _parser() -> argparse.ArgumentParser:
     )
     verify.add_argument("--txt", default=Path("AI 写代码之后-v2.2.0.txt"), type=Path)
     verify.add_argument("--report", default=Path("VERIFICATION.md"), type=Path)
+    audit = commands.add_parser("audit", help="freeze the editorial baseline")
+    audit.add_argument("--version", required=True)
+    audit.add_argument("--book", default=Path("book"), type=Path)
+    audit.add_argument("--report", default=Path("AUDIT-v2.3.md"), type=Path)
     return parser
 
 
@@ -89,6 +94,133 @@ def _write_verification_report(
     destination.write_text("\n".join(lines), encoding="utf-8", newline="\n")
 
 
+def _cell(text: object) -> str:
+    return str(text).replace("|", "\\|").replace("\n", " ")
+
+
+def _write_audit_report(
+    report: AuditReport, *, version: str, book: Path, destination: Path
+) -> None:
+    page_targets = {
+        1: "22–25",
+        2: "36–40",
+        3: "38–42",
+        4: "34–38",
+        5: "30–34",
+        6: "42–48",
+        7: "32–36",
+        8: "40–46",
+        9: "40–44",
+        10: "90–100",
+    }
+    target_midpoint = 400_000
+    reduction = (report.total_chars - target_midpoint) / max(report.total_chars, 1) * 100
+    lines = [
+        f"# 《AI 写代码之后》v{version} Editorial Audit",
+        "",
+        "**Status:** FROZEN — recovered v2.2.0 baseline; no chapter prose compressed yet.",
+        "",
+        f"- Manifest SHA256: `{_file_sha256(book / 'manifest.json')}`",
+        f"- Chapters audited: {len(report.chapters)}",
+        f"- Recovered visible characters: {report.total_chars}",
+        "- v2.3 target: 380000–420000 visible characters",
+        f"- Reduction required to 400000-character midpoint: {reduction:.2f}%",
+        f"- Exact duplicate paragraphs over 80 characters: {len(report.exact_duplicates)}",
+        f"- Risk-command candidates: {len(report.risk_candidates)}",
+        f"- Volatile-fact candidates: {len(report.volatile_candidates)}",
+        f"- Invalid chapter references: {len(report.invalid_references)}",
+        "",
+        "## Volume baseline",
+        "",
+        "| Volume | Visible characters | v2.3 page target |",
+        "|---:|---:|---:|",
+    ]
+    for volume, chars in report.volume_chars.items():
+        lines.append(f"| {volume} | {chars} | {page_targets.get(volume, '—')} |")
+
+    lines.extend(
+        [
+            "",
+            "## Six-chapter pilot baseline",
+            "",
+            "| Chapter | Current chars | 40% reduction | 45% reduction | Source |",
+            "|---:|---:|---:|---:|---|",
+        ]
+    )
+    for chapter in report.chapters:
+        if chapter.id in {1, 19, 40, 54, 70, 91}:
+            lines.append(
+                f"| {chapter.id:03d} | {chapter.visible_chars} | "
+                f"{round(chapter.visible_chars * 0.60)} | {round(chapter.visible_chars * 0.55)} | "
+                f"`{chapter.source}` |"
+            )
+
+    lines.extend(
+        [
+            "",
+            "## Chapter baseline",
+            "",
+            "| ID | Volume | Level | Visible chars | Paragraphs | Code blocks | Images | Links | Title |",
+            "|---:|---:|---|---:|---:|---:|---:|---:|---|",
+        ]
+    )
+    manifest = json.loads((book / "manifest.json").read_text(encoding="utf-8"))
+    levels = {item["id"]: item["level"] for item in manifest["chapters"]}
+    for chapter in report.chapters:
+        lines.append(
+            f"| {chapter.id:03d} | {chapter.volume} | {levels.get(chapter.id, '')} | "
+            f"{chapter.visible_chars} | {chapter.paragraphs} | {chapter.code_blocks} | "
+            f"{chapter.images} | {chapter.links} | {_cell(chapter.title)} |"
+        )
+
+    lines.extend(["", "## Exact duplicate paragraphs (>80 chars)", ""])
+    if report.exact_duplicates:
+        for index, duplicate in enumerate(report.exact_duplicates, start=1):
+            excerpt = duplicate.text[:160] + ("…" if len(duplicate.text) > 160 else "")
+            lines.extend(
+                [
+                    f"### Duplicate {index}",
+                    "",
+                    f"- Chapters: {', '.join(f'{item:03d}' for item in duplicate.chapter_ids)}",
+                    f"- Locations: {', '.join(f'`{item}`' for item in duplicate.locations)}",
+                    f"- Text: {_cell(excerpt)}",
+                    "",
+                ]
+            )
+    else:
+        lines.append("- None")
+
+    def add_findings(title: str, findings: tuple) -> None:
+        lines.extend(["", f"## {title}", ""])
+        if not findings:
+            lines.append("- None")
+            return
+        lines.extend(["| Chapter | Location | Reason | Candidate |", "|---:|---|---|---|"])
+        for finding in findings:
+            excerpt = finding.text[:180] + ("…" if len(finding.text) > 180 else "")
+            lines.append(
+                f"| {finding.chapter_id:03d} | `{finding.source}:{finding.line}` | "
+                f"{_cell(finding.reason)} | {_cell(excerpt)} |"
+            )
+
+    add_findings("Risk-command candidates", report.risk_candidates)
+    add_findings("Volatile-fact candidates", report.volatile_candidates)
+    add_findings("Invalid chapter references", report.invalid_references)
+    lines.extend(
+        [
+            "",
+            "## Repository and release baseline",
+            "",
+            "- Canonical Markdown and build scripts were absent from the v2.2.0 branch before this recovery.",
+            "- Existing top-level v2.2.0 EPUB, TXT, DOCX, AZW3, FB2, HTMLZ, KEPUB and MOBI remain immutable inputs/artifacts.",
+            "- README and START-HERE positioning changes are deferred until the recovered baseline and pilot chapters are accepted.",
+            "- PDF page count/bookmarks and Release attachment correspondence remain deferred release checks.",
+            "",
+        ]
+    )
+    destination.write_text("\n".join(lines), encoding="utf-8", newline="\n")
+
+
 def main(argv: list[str] | None = None) -> int:
     args = _parser().parse_args(argv)
     try:
@@ -127,6 +259,28 @@ def main(argv: list[str] | None = None) -> int:
                 )
             )
             return 1 if report.errors else 0
+        if args.command == "audit":
+            report = audit_source(args.book)
+            _write_audit_report(
+                report,
+                version=args.version,
+                book=args.book,
+                destination=args.report,
+            )
+            print(
+                json.dumps(
+                    {
+                        "chapters": len(report.chapters),
+                        "duplicates": len(report.exact_duplicates),
+                        "report": str(args.report),
+                        "risk_candidates": len(report.risk_candidates),
+                        "volatile_candidates": len(report.volatile_candidates),
+                    },
+                    ensure_ascii=False,
+                    sort_keys=True,
+                )
+            )
+            return 0
     except SourceWriteError as exc:
         print(f"source error: {exc}", file=sys.stderr)
         return 1

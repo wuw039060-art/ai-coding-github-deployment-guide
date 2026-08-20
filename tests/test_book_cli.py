@@ -80,6 +80,41 @@ class BookCliTests(unittest.TestCase):
             self.assertIn("PASS", report.read_text(encoding="utf-8"))
             self.assertIn('"errors": 0', result.stdout)
 
+    def test_audit_command_writes_baseline_tables(self):
+        """The audit CLI must preserve chapter and volume baselines for editors."""
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            epub = build_epub(root, [(1, "第 1 章 标题")])
+            book = root / "book"
+            from scripts.booklib.source_writer import write_source
+
+            write_source(epub, book)
+            report = root / "AUDIT-v2.3.md"
+
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    str(REPOSITORY_ROOT / "scripts/book.py"),
+                    "audit",
+                    "--version",
+                    "2.3.0",
+                    "--book",
+                    str(book),
+                    "--report",
+                    str(report),
+                ],
+                cwd=REPOSITORY_ROOT,
+                text=True,
+                capture_output=True,
+                check=False,
+            )
+
+            self.assertEqual(result.returncode, 0, result.stderr)
+            text = report.read_text(encoding="utf-8")
+            self.assertIn("## Volume baseline", text)
+            self.assertIn("## Chapter baseline", text)
+            self.assertIn("| 001 |", text)
+
 
 if __name__ == "__main__":
     unittest.main()
