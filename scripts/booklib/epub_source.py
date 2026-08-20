@@ -54,7 +54,9 @@ def _read_xml(archive: zipfile.ZipFile, name: str) -> ET.Element:
         raise SourceError(f"invalid XML in {name}: {exc}") from exc
 
 
-def _document_body_and_title(root: ET.Element, href: str) -> tuple[ET.Element, str]:
+def _document_body_and_title(
+    root: ET.Element, href: str, *, require_title: bool
+) -> tuple[ET.Element, str]:
     body = root.find(f".//{{{XHTML_NS}}}body")
     if body is None:
         body = root.find(".//body")
@@ -65,7 +67,7 @@ def _document_body_and_title(root: ET.Element, href: str) -> tuple[ET.Element, s
     if heading is None:
         heading = body.find(".//h1")
     title = "" if heading is None else "".join(heading.itertext()).strip()
-    if not title:
+    if require_title and not title:
         raise SourceError(f"XHTML title is missing: {href}")
     return body, title
 
@@ -111,8 +113,10 @@ def read_epub(path: Path) -> EpubBook:
             href = manifest[item_id].split("#", 1)[0]
             archive_href = posixpath.normpath(posixpath.join(package_dir, href))
             document = _read_xml(archive, archive_href)
-            body, title = _document_body_and_title(document, href)
             match = CHAPTER_ID.fullmatch(item_id)
+            body, title = _document_body_and_title(
+                document, href, require_title=match is not None
+            )
             if match is None:
                 frontmatter.append(DocumentSource(item_id, href, title, body))
                 continue
