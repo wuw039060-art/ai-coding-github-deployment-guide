@@ -40,6 +40,46 @@ class BookCliTests(unittest.TestCase):
             self.assertEqual(summary["chapters"], 1)
             self.assertTrue((output / "manifest.json").is_file())
 
+    def test_verify_command_writes_a_human_readable_report(self):
+        """Verification must be usable from Make and leave reviewable evidence."""
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            chapters = [(number, f"第 {number} 章 标题") for number in range(1, 105)]
+            epub = build_epub(root, chapters)
+            book = root / "book"
+            from scripts.booklib.source_writer import write_source
+
+            write_source(epub, book)
+            txt = root / "book.txt"
+            txt.write_text("".join(f"chapter {number}" for number in range(1, 105)), encoding="utf-8")
+            report = root / "VERIFICATION.md"
+
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    str(REPOSITORY_ROOT / "scripts/book.py"),
+                    "verify",
+                    "--version",
+                    "2.3.0",
+                    "--book",
+                    str(book),
+                    "--epub",
+                    str(epub),
+                    "--txt",
+                    str(txt),
+                    "--report",
+                    str(report),
+                ],
+                cwd=REPOSITORY_ROOT,
+                text=True,
+                capture_output=True,
+                check=False,
+            )
+
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertIn("PASS", report.read_text(encoding="utf-8"))
+            self.assertIn('"errors": 0', result.stdout)
+
 
 if __name__ == "__main__":
     unittest.main()
