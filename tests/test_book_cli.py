@@ -80,6 +80,60 @@ class BookCliTests(unittest.TestCase):
             self.assertIn("PASS", report.read_text(encoding="utf-8"))
             self.assertIn('"errors": 0', result.stdout)
 
+    def test_verify_cli_separates_editorial_checks_from_recovery_fidelity(self):
+        """Intentional prose edits must pass the normal gate but fail recovery fidelity."""
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            chapters = [(number, f"第 {number} 章 标题") for number in range(1, 105)]
+            epub = build_epub(root, chapters)
+            book = root / "book"
+            from scripts.booklib.source_writer import write_source
+
+            manifest = write_source(epub, book)
+            for item in manifest["chapters"]:
+                source = book / item["source"]
+                source.write_text(f"# {item['title']}\n", encoding="utf-8")
+            txt = root / "book.txt"
+            txt.write_text("recovery baseline", encoding="utf-8")
+
+            base_command = [
+                sys.executable,
+                str(REPOSITORY_ROOT / "scripts/book.py"),
+                "verify",
+                "--version",
+                "2.3.0",
+                "--book",
+                str(book),
+                "--epub",
+                str(epub),
+                "--txt",
+                str(txt),
+            ]
+            editorial = subprocess.run(
+                [*base_command, "--report", str(root / "editorial.md")],
+                cwd=REPOSITORY_ROOT,
+                text=True,
+                capture_output=True,
+                check=False,
+            )
+            recovery = subprocess.run(
+                [
+                    *base_command,
+                    "--recovery-fidelity",
+                    "--report",
+                    str(root / "recovery.md"),
+                ],
+                cwd=REPOSITORY_ROOT,
+                text=True,
+                capture_output=True,
+                check=False,
+            )
+
+            self.assertEqual(editorial.returncode, 0, editorial.stderr)
+            self.assertEqual(recovery.returncode, 1, recovery.stderr)
+            self.assertIn("PASS", (root / "editorial.md").read_text(encoding="utf-8"))
+            self.assertIn("FAIL", (root / "recovery.md").read_text(encoding="utf-8"))
+
     def test_audit_command_writes_baseline_tables(self):
         """The audit CLI must preserve chapter and volume baselines for editors."""
         with tempfile.TemporaryDirectory() as temp_dir:

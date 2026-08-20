@@ -71,7 +71,13 @@ def _relative_target(source: Path, href: str) -> Path | None:
     return (source.parent / path).resolve()
 
 
-def verify_source(book_dir: Path, epub_path: Path, txt_path: Path) -> VerificationReport:
+def verify_source(
+    book_dir: Path,
+    epub_path: Path,
+    txt_path: Path,
+    *,
+    enforce_recovery_fidelity: bool = True,
+) -> VerificationReport:
     book_dir = book_dir.resolve()
     errors: list[str] = []
     warnings: list[str] = []
@@ -156,7 +162,7 @@ def verify_source(book_dir: Path, epub_path: Path, txt_path: Path) -> Verificati
     metrics["epub_visible_chars"] = epub_chars
     metrics["markdown_visible_chars"] = markdown_chars
     metrics["epub_text_delta_percent"] = round(delta, 4)
-    if len(markdown_by_id) == 104 and delta > 0.5:
+    if enforce_recovery_fidelity and len(markdown_by_id) == 104 and delta > 0.5:
         errors.append(f"Markdown visible-text delta exceeds 0.5%: {delta:.4f}%")
 
     try:

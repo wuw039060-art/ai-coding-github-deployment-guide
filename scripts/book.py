@@ -15,6 +15,7 @@ if __package__ in {None, ""}:
 
 from scripts.booklib.source_writer import SourceWriteError, write_source
 from scripts.booklib.audit import AuditReport, audit_source
+from scripts.booklib.pilot import PilotReport, validate_pilot
 from scripts.booklib.verify import VerificationReport, verify_source
 
 
@@ -32,10 +33,18 @@ def _parser() -> argparse.ArgumentParser:
     )
     verify.add_argument("--txt", default=Path("AI 写代码之后-v2.2.0.txt"), type=Path)
     verify.add_argument("--report", default=Path("VERIFICATION.md"), type=Path)
+    verify.add_argument(
+        "--recovery-fidelity",
+        action="store_true",
+        help="fail when edited Markdown differs from the recovery EPUB by over 0.5%%",
+    )
     audit = commands.add_parser("audit", help="freeze the editorial baseline")
     audit.add_argument("--version", required=True)
     audit.add_argument("--book", default=Path("book"), type=Path)
     audit.add_argument("--report", default=Path("AUDIT-v2.3.md"), type=Path)
+    pilot = commands.add_parser("pilot", help="validate the six-chapter reduction pilot")
+    pilot.add_argument("--book", default=Path("book"), type=Path)
+    pilot.add_argument("--report", default=Path("PILOT-v2.3.md"), type=Path)
     return parser
 
 
@@ -221,6 +230,41 @@ def _write_audit_report(
     destination.write_text("\n".join(lines), encoding="utf-8", newline="\n")
 
 
+def _write_pilot_report(report: PilotReport, *, destination: Path) -> None:
+    status = "PASS" if not report.errors else "FAIL"
+    lines = [
+        "# 《AI 写代码之后》v2.3 Six-Chapter Pilot",
+        "",
+        f"**Status:** {status}",
+        "",
+        "| Chapter | Baseline | Current | Reduction | Target |",
+        "|---:|---:|---:|---:|---:|",
+    ]
+    for result in report.chapters:
+        spec = result.spec
+        lines.append(
+            f"| {spec.id:03d} | {spec.baseline_chars} | {result.visible_chars} | "
+            f"{result.reduction_percent:.2f}% | {spec.minimum_chars}–{spec.maximum_chars} |"
+        )
+    baseline_total = sum(item.spec.baseline_chars for item in report.chapters)
+    current_total = sum(item.visible_chars for item in report.chapters)
+    reduction = (baseline_total - current_total) / max(baseline_total, 1) * 100
+    lines.extend(
+        [
+            f"| **Total** | **{baseline_total}** | **{current_total}** | "
+            f"**{reduction:.2f}%** | **28442–31028** |",
+            "",
+            "## Errors",
+            "",
+        ]
+    )
+    lines.extend(f"- {item}" for item in report.errors)
+    if not report.errors:
+        lines.append("- None")
+    lines.append("")
+    destination.write_text("\n".join(lines), encoding="utf-8", newline="\n")
+
+
 def main(argv: list[str] | None = None) -> int:
     args = _parser().parse_args(argv)
     try:
@@ -239,7 +283,12 @@ def main(argv: list[str] | None = None) -> int:
             )
             return 0
         if args.command == "verify":
-            report = verify_source(args.book, args.epub, args.txt)
+            report = verify_source(
+                args.book,
+                args.epub,
+                args.txt,
+                enforce_recovery_fidelity=args.recovery_fidelity,
+            )
             _write_verification_report(
                 report,
                 version=args.version,
@@ -281,6 +330,21 @@ def main(argv: list[str] | None = None) -> int:
                 )
             )
             return 0
+        if args.command == "pilot":
+            report = validate_pilot(args.book)
+            _write_pilot_report(report, destination=args.report)
+            print(
+                json.dumps(
+                    {
+                        "chapters": len(report.chapters),
+                        "errors": len(report.errors),
+                        "report": str(args.report),
+                    },
+                    ensure_ascii=False,
+                    sort_keys=True,
+                )
+            )
+            return 1 if report.errors else 0
     except SourceWriteError as exc:
         print(f"source error: {exc}", file=sys.stderr)
         return 1
