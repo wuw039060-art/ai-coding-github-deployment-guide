@@ -38,7 +38,7 @@ Token 泄露后，持有者可能在有效期内冒充用户或服务。短期�
 
 ## 登录循环要按步骤拆
 
-一次登录大致分为：打开登录页；提交凭据；服务器验证账号状态；创建 Session 或签发 Token；客户端保存 Cookie 或 Token；后续请求携带凭据；服务器每次验证并检查权限；注销或过期后凭据失效。
+一次登录大致分为几个步骤。打开登录页；提交凭据；服务器验证账号状态；创建 Session 或签发 Token；客户端保存 Cookie 或 Token；后续请求携带凭据；服务器每次验证并检查权限；注销或过期后凭据失效。
 
 用户输入正确密码，页面短暂进入主页又跳回登录页。Network 显示 POST `/login` 返回 200，响应有 Set-Cookie；随后 GET `/account` 没带 Cookie，返回 401。先查 Cookie 的 Domain、Path、Secure、SameSite 和浏览器提示。开发环境用 HTTP，却设置 Secure，可能导致本地不发送。
 
@@ -88,6 +88,6 @@ XSS 是把不可信内容当脚本执行。HttpOnly Cookie 不易被脚本直接
 
 能解释 Cookie、Session 和 Token 分别存在哪里、证明什么、怎样失效。知道 HttpOnly、Secure、SameSite、CORS 和 CSRF 不是同一层防护。能识别浏览器缓存、Service Worker、CDN 和应用缓存。不会让账户响应进入公共缓存。
 
-最小练习：打开 DevTools Network，访问一个公开静态资源，观察 Cache-Control、ETag、Age 和 Size/Transferred。刷新一次，比较是否来自 memory cache、disk cache 或 304。只观察，不清生产 CDN。完整浏览器路径见第十九章。
+最小练习从 DevTools Network 开始。访问一个公开静态资源，观察 Cache-Control、ETag、Age 和 Size/Transferred。刷新一次，比较是否来自 memory cache、disk cache 或 304。只观察，不清生产 CDN。完整浏览器路径见第十九章。
 
 AI 可以检查脱敏后的 Set-Cookie 属性、Cache-Control、CDN 头和登录循环证据，设计两个账户隔离测试。不要提供 Cookie、Token、签名 URL、真实用户响应和服务端秘密。认证策略、会话撤销、生产缓存清除和用户数据事故需要人工确认。下一章回到页面代码，说明 HTML、CSS、JavaScript、前端和后端如何分工。
