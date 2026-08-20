@@ -92,6 +92,30 @@ class XhtmlMarkdownTests(unittest.TestCase):
 
         self.assertEqual(text, "正文。\n")
 
+    def test_converts_standalone_cover_image(self):
+        """A cover XHTML body uses img directly rather than wrapping it in figure."""
+        body = parse_body("<img src='../assets/cover.png' alt='《AI 写代码之后》封面'/>")
+
+        text = to_markdown(body, "text/cover.xhtml")
+
+        self.assertEqual(text, "![《AI 写代码之后》封面](../assets/cover.png)\n")
+
+    def test_unwraps_semantic_section_without_losing_children(self):
+        """Frontmatter groups content in section containers that are not prose themselves."""
+        body = parse_body("<section><h1>书名</h1><p>副标题</p></section>")
+
+        text = to_markdown(body, "text/title.xhtml")
+
+        self.assertEqual(text, "# 书名\n\n副标题\n")
+
+    def test_preserves_explicit_line_breaks(self):
+        """Dedication lines separated by br must not be merged into one sentence."""
+        body = parse_body("<p>写给创造者<br/>也写给维护者</p>")
+
+        text = to_markdown(body, "text/dedication.xhtml")
+
+        self.assertEqual(text, "写给创造者  \n也写给维护者\n")
+
 
 if __name__ == "__main__":
     unittest.main()

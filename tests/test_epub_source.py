@@ -22,6 +22,8 @@ def build_epub(
     missing_manifest_id: int | None = None,
     malformed_id: int | None = None,
     include_untitled_cover: bool = False,
+    chapter_bodies: dict[int, str] | None = None,
+    assets: dict[str, bytes] | None = None,
 ) -> Path:
     epub_path = directory / "fixture.epub"
     manifest_items = []
@@ -36,9 +38,12 @@ def build_epub(
                 f'<item id="{item_id}" href="{href}" media-type="application/xhtml+xml" />'
             )
         spine_items.append(f'<itemref idref="{item_id}" />')
+        body = (chapter_bodies or {}).get(
+            chapter_id, f"<h1>{title}</h1><p>chapter {chapter_id}</p>"
+        )
         documents[href] = (
             "<html xmlns=\"http://www.w3.org/1999/xhtml\"><body>"
-            f"<h1>{title}</h1><p>chapter {chapter_id}</p></body></html>"
+            f"{body}</body></html>"
         )
 
     if include_untitled_cover:
@@ -67,6 +72,8 @@ def build_epub(
         archive.writestr("OEBPS/package.opf", package)
         for href, document in documents.items():
             archive.writestr(f"OEBPS/{href}", document)
+        for href, payload in (assets or {}).items():
+            archive.writestr(f"OEBPS/{href}", payload)
     return epub_path
 
 

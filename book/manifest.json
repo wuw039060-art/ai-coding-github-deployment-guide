@@ -1,0 +1,1064 @@
+{
+  "schema_version": 1,
+  "source_epub": "AI 写代码之后-v2.2.0.epub",
+  "source_sha256": "3db18411e4cf1828a85d54579b16ba195740e242f22899f954cbc7801f1224d8",
+  "chapters": [
+    {
+      "id": 1,
+      "volume": 1,
+      "part": null,
+      "title": "从本地文件到公开可用的产品",
+      "source": "chapters/001-从本地文件到公开可用的产品.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 2,
+      "volume": 1,
+      "part": null,
+      "title": "本地电脑、GitHub、部署平台、服务器和用户设备",
+      "source": "chapters/002-本地电脑-github-部署平台-服务器和用户设备.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 3,
+      "volume": 1,
+      "part": null,
+      "title": "静态网站、动态网站、服务器程序和手机 App",
+      "source": "chapters/003-静态网站-动态网站-服务器程序和手机-app.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 4,
+      "volume": 1,
+      "part": null,
+      "title": "文件、路径、终端和图形界面的最低限度知识",
+      "source": "chapters/004-文件-路径-终端和图形界面的最低限度知识.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 5,
+      "volume": 2,
+      "part": null,
+      "title": "Git、GitHub、项目文件夹和仓库",
+      "source": "chapters/005-git-github-项目文件夹和仓库.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 6,
+      "volume": 2,
+      "part": null,
+      "title": "GitHub 账号、公开仓库、私有仓库和网页上传",
+      "source": "chapters/006-github-账号-公开仓库-私有仓库和网页上传.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 7,
+      "volume": 2,
+      "part": null,
+      "title": "用 GitHub Desktop 管理本地项目",
+      "source": "chapters/007-用-github-desktop-管理本地项目.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": [
+        "https://www.youtube.com/watch?v=AYJQi6TyPyU&t=135s"
+      ]
+    },
+    {
+      "id": 8,
+      "volume": 2,
+      "part": null,
+      "title": "Commit、Push、Pull、Clone 和 Sync",
+      "source": "chapters/008-commit-push-pull-clone-和-sync.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 9,
+      "volume": 2,
+      "part": null,
+      "title": "分支、合并、冲突、撤销与恢复",
+      "source": "chapters/009-分支-合并-冲突-撤销与恢复.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 10,
+      "volume": 2,
+      "part": null,
+      "title": "README、Releases、Issues、Actions、许可证和项目维护状态",
+      "source": "chapters/010-readme-releases-issues-actions-许可证和项目维护状态.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 11,
+      "volume": 2,
+      "part": null,
+      "title": "下载、检查并运行别人的项目",
+      "source": "chapters/011-下载-检查并运行别人的项目.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 12,
+      "volume": 2,
+      "part": null,
+      "title": ".gitignore、秘密泄露和历史中的敏感信息",
+      "source": "chapters/012-gitignore-秘密泄露和历史中的敏感信息.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 13,
+      "volume": 3,
+      "part": null,
+      "title": "浏览器、客户端和服务器",
+      "source": "chapters/013-浏览器-客户端和服务器.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 14,
+      "volume": 3,
+      "part": null,
+      "title": "IP、域名、DNS、端口和 URL",
+      "source": "chapters/014-ip-域名-dns-端口和-url.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 15,
+      "volume": 3,
+      "part": null,
+      "title": "HTTP、HTTPS、TLS、请求与响应",
+      "source": "chapters/015-http-https-tls-请求与响应.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 16,
+      "volume": 3,
+      "part": null,
+      "title": "Cookie、Session、Token、缓存和 CDN",
+      "source": "chapters/016-cookie-session-token-缓存和-cdn.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 17,
+      "volume": 3,
+      "part": null,
+      "title": "HTML、CSS、JavaScript、前端和后端",
+      "source": "chapters/017-html-css-javascript-前端和后端.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 18,
+      "volume": 3,
+      "part": null,
+      "title": "API、数据库、文件存储和实时通信",
+      "source": "chapters/018-api-数据库-文件存储和实时通信.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 19,
+      "volume": 3,
+      "part": null,
+      "title": "浏览器开发者工具、状态码和网络请求",
+      "source": "chapters/019-浏览器开发者工具-状态码和网络请求.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": [
+        "https://www.youtube.com/watch?v=t1c5tNPpXjs&t=23s"
+      ]
+    },
+    {
+      "id": 20,
+      "volume": 3,
+      "part": null,
+      "title": "动态应用的完整架构图",
+      "source": "chapters/020-动态应用的完整架构图.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 21,
+      "volume": 4,
+      "part": null,
+      "title": "源代码、依赖、运行时、构建和构建产物",
+      "source": "chapters/021-源代码-依赖-运行时-构建和构建产物.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 22,
+      "volume": 4,
+      "part": null,
+      "title": "包管理器、锁文件、版本号和环境差异",
+      "source": "chapters/022-包管理器-锁文件-版本号和环境差异.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 23,
+      "volume": 4,
+      "part": null,
+      "title": "本地预览与静态网站发布",
+      "source": "chapters/023-本地预览与静态网站发布.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 24,
+      "volume": 4,
+      "part": null,
+      "title": "GitHub Pages 与 Cloudflare Pages",
+      "source": "chapters/024-github-pages-与-cloudflare-pages.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 25,
+      "volume": 4,
+      "part": null,
+      "title": "Vercel、Render 等自动部署平台",
+      "source": "chapters/025-vercel-render-等自动部署平台.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": [
+        "https://www.youtube.com/watch?v=zFXscjUoDDA&t=77s"
+      ]
+    },
+    {
+      "id": 26,
+      "volume": 4,
+      "part": null,
+      "title": "Build Command、Output Directory 和环境变量",
+      "source": "chapters/026-build-command-output-directory-和环境变量.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 27,
+      "volume": 4,
+      "part": null,
+      "title": "Preview、Production、部署日志和回滚",
+      "source": "chapters/027-preview-production-部署日志和回滚.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 28,
+      "volume": 4,
+      "part": null,
+      "title": "自定义域名、DNS、HTTPS、费用与地区差异",
+      "source": "chapters/028-自定义域名-dns-https-费用与地区差异.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 29,
+      "volume": 5,
+      "part": null,
+      "title": "后端为什么存在以及 API 怎样工作",
+      "source": "chapters/029-后端为什么存在以及-api-怎样工作.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 30,
+      "volume": 5,
+      "part": null,
+      "title": "REST、WebSocket、身份认证和权限控制",
+      "source": "chapters/030-rest-websocket-身份认证和权限控制.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 31,
+      "volume": 5,
+      "part": null,
+      "title": "SQL、NoSQL、PostgreSQL 与 SQLite",
+      "source": "chapters/031-sql-nosql-postgresql-与-sqlite.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 32,
+      "volume": 5,
+      "part": null,
+      "title": "数据库迁移、连接、备份和恢复",
+      "source": "chapters/032-数据库迁移-连接-备份和恢复.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 33,
+      "volume": 5,
+      "part": null,
+      "title": "文件上传、对象存储、邮件、推送和 AI API",
+      "source": "chapters/033-文件上传-对象存储-邮件-推送和-ai-api.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 34,
+      "volume": 5,
+      "part": null,
+      "title": "Supabase、Firebase 与后端即服务",
+      "source": "chapters/034-supabase-firebase-与后端即服务.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 35,
+      "volume": 5,
+      "part": null,
+      "title": "托管方案、自建方案和平台依赖",
+      "source": "chapters/035-托管方案-自建方案和平台依赖.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 36,
+      "volume": 6,
+      "part": null,
+      "title": "VPS、云服务器及购买时需要看的参数",
+      "source": "chapters/036-vps-云服务器及购买时需要看的参数.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 37,
+      "volume": 6,
+      "part": null,
+      "title": "第一次使用 SSH 登录服务器",
+      "source": "chapters/037-第一次使用-ssh-登录服务器.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": [
+        "https://www.youtube.com/watch?v=E0tUio6ZgH8&t=376s"
+      ]
+    },
+    {
+      "id": 38,
+      "volume": 6,
+      "part": null,
+      "title": "Linux 文件、目录、用户、root、sudo 和权限",
+      "source": "chapters/038-linux-文件-目录-用户-root-sudo-和权限.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 39,
+      "volume": 6,
+      "part": null,
+      "title": "软件包、进程、端口、磁盘和内存",
+      "source": "chapters/039-软件包-进程-端口-磁盘和内存.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 40,
+      "volume": 6,
+      "part": null,
+      "title": "systemd、systemctl、journalctl 和服务日志",
+      "source": "chapters/040-systemd-systemctl-journalctl-和服务日志.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": [
+        "https://www.youtube.com/watch?v=3kl62YSU9XA&t=60s"
+      ]
+    },
+    {
+      "id": 41,
+      "volume": 6,
+      "part": null,
+      "title": "防火墙、Caddy、Nginx、域名与 HTTPS",
+      "source": "chapters/041-防火墙-caddy-nginx-域名与-https.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 42,
+      "volume": 6,
+      "part": null,
+      "title": "部署、更新、回滚、备份和恢复",
+      "source": "chapters/042-部署-更新-回滚-备份和恢复.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 43,
+      "volume": 6,
+      "part": null,
+      "title": "自建服务器增加了哪些长期责任",
+      "source": "chapters/043-自建服务器增加了哪些长期责任.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 44,
+      "volume": 7,
+      "part": null,
+      "title": "运行环境问题与 Docker 的基本模型",
+      "source": "chapters/044-运行环境问题与-docker-的基本模型.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 45,
+      "volume": 7,
+      "part": null,
+      "title": "镜像、容器、Dockerfile 和 Registry",
+      "source": "chapters/045-镜像-容器-dockerfile-和-registry.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 46,
+      "volume": 7,
+      "part": null,
+      "title": "端口映射、Volume、Bind Mount 和数据持久化",
+      "source": "chapters/046-端口映射-volume-bind-mount-和数据持久化.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 47,
+      "volume": 7,
+      "part": null,
+      "title": "Docker Compose 与多容器应用",
+      "source": "chapters/047-docker-compose-与多容器应用.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": [
+        "https://www.youtube.com/watch?v=SXwC9fSwct8&t=718s"
+      ]
+    },
+    {
+      "id": 48,
+      "volume": 7,
+      "part": null,
+      "title": "容器状态、日志、健康检查和重启策略",
+      "source": "chapters/048-容器状态-日志-健康检查和重启策略.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 49,
+      "volume": 7,
+      "part": null,
+      "title": "更新、回滚、清理与数据丢失风险",
+      "source": "chapters/049-更新-回滚-清理与数据丢失风险.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 50,
+      "volume": 7,
+      "part": null,
+      "title": "Docker、虚拟机和 Kubernetes 的边界",
+      "source": "chapters/050-docker-虚拟机和-kubernetes-的边界.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 51,
+      "volume": 8,
+      "part": null,
+      "title": "App 客户端、后端和本地数据",
+      "source": "chapters/051-app-客户端-后端和本地数据.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 52,
+      "volume": 8,
+      "part": null,
+      "title": "Flutter 项目、依赖、Debug、Profile 和 Release",
+      "source": "chapters/052-flutter-项目-依赖-debug-profile-和-release.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 53,
+      "volume": 8,
+      "part": null,
+      "title": "APK、AAB、包名、版本号和 Android 签名",
+      "source": "chapters/053-apk-aab-包名-版本号和-android-签名.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 54,
+      "volume": 8,
+      "part": null,
+      "title": "Google Play 内部测试与发布流程",
+      "source": "chapters/054-google-play-内部测试与发布流程.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": [
+        "https://www.youtube.com/watch?v=adt9A8125S4&t=50s"
+      ]
+    },
+    {
+      "id": 55,
+      "volume": 8,
+      "part": null,
+      "title": "iOS、macOS、Xcode、证书和 Provisioning Profile",
+      "source": "chapters/055-ios-macos-xcode-证书和-provisioning-profile.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 56,
+      "volume": 8,
+      "part": null,
+      "title": "Archive、TestFlight 与 App Store Connect",
+      "source": "chapters/056-archive-testflight-与-app-store-connect.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": [
+        "https://www.youtube.com/watch?v=iE2bpP56QKc&t=58s",
+        "https://www.youtube.com/watch?v=x0d8Jx3HvdI&t=95s"
+      ]
+    },
+    {
+      "id": 57,
+      "volume": 8,
+      "part": null,
+      "title": "商店素材、权限、隐私政策和审核反馈",
+      "source": "chapters/057-商店素材-权限-隐私政策和审核反馈.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 58,
+      "volume": 8,
+      "part": null,
+      "title": "App 更新、崩溃日志和后端停机",
+      "source": "chapters/058-app-更新-崩溃日志和后端停机.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 59,
+      "volume": 9,
+      "part": null,
+      "title": "从现象到故障层级的统一判断方法",
+      "source": "chapters/059-从现象到故障层级的统一判断方法.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 60,
+      "volume": 9,
+      "part": null,
+      "title": "Console、Network、Build Log 和 Runtime Log",
+      "source": "chapters/060-console-network-build-log-和-runtime-log.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 61,
+      "volume": 9,
+      "part": null,
+      "title": "服务器、Docker、数据库和代理日志",
+      "source": "chapters/061-服务器-docker-数据库和代理日志.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 62,
+      "volume": 9,
+      "part": null,
+      "title": "Flutter、Logcat、Xcode 与商店上传错误",
+      "source": "chapters/062-flutter-logcat-xcode-与商店上传错误.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 63,
+      "volume": 9,
+      "part": null,
+      "title": "复现、调用栈、最小复现、最近改动和回滚",
+      "source": "chapters/063-复现-调用栈-最小复现-最近改动和回滚.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 64,
+      "volume": 9,
+      "part": null,
+      "title": "怎样向 AI 或开发者提交完整报错",
+      "source": "chapters/064-怎样向-ai-或开发者提交完整报错.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 65,
+      "volume": 9,
+      "part": null,
+      "title": "Secret、.env、SSH 密钥和最小权限",
+      "source": "chapters/065-secret-env-ssh-密钥和最小权限.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 66,
+      "volume": 9,
+      "part": null,
+      "title": "防火墙、数据库暴露、输入验证和文件上传",
+      "source": "chapters/066-防火墙-数据库暴露-输入验证和文件上传.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 67,
+      "volume": 9,
+      "part": null,
+      "title": "备份、恢复测试、监控、费用和安全下线",
+      "source": "chapters/067-备份-恢复测试-监控-费用和安全下线.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 68,
+      "volume": 9,
+      "part": null,
+      "title": "每周、每月和每季度维护清单",
+      "source": "chapters/068-每周-每月和每季度维护清单.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 69,
+      "volume": 10,
+      "part": "与 AI 安全协作",
+      "title": "让 AI 先理解项目结构",
+      "source": "chapters/069-让-ai-先理解项目结构.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 70,
+      "volume": 10,
+      "part": "与 AI 安全协作",
+      "title": "计划、权限、Diff、测试和验证证据",
+      "source": "chapters/070-计划-权限-diff-测试和验证证据.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 71,
+      "volume": 10,
+      "part": "与 AI 安全协作",
+      "title": "安全地生成配置、部署文档和回滚方案",
+      "source": "chapters/071-安全地生成配置-部署文档和回滚方案.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 72,
+      "volume": 10,
+      "part": "与 AI 安全协作",
+      "title": "AI 声称完成以后还要检查什么",
+      "source": "chapters/072-ai-声称完成以后还要检查什么.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 73,
+      "volume": 10,
+      "part": "与 AI 安全协作",
+      "title": "生产环境中的人工确认边界",
+      "source": "chapters/073-生产环境中的人工确认边界.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 74,
+      "volume": 10,
+      "part": "与 AI 安全协作",
+      "title": "不懂代码时怎样保留最终判断能力",
+      "source": "chapters/074-不懂代码时怎样保留最终判断能力.md",
+      "level": "core",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 75,
+      "volume": 10,
+      "part": "项目开始变复杂以后",
+      "title": "代码能运行以后，架构问题才开始出现",
+      "source": "chapters/075-代码能运行以后-架构问题才开始出现.md",
+      "level": "optional",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 76,
+      "volume": 10,
+      "part": "项目开始变复杂以后",
+      "title": "模块、内聚、耦合、依赖方向与公开接口",
+      "source": "chapters/076-模块-内聚-耦合-依赖方向与公开接口.md",
+      "level": "optional",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 77,
+      "volume": 10,
+      "part": "项目开始变复杂以后",
+      "title": "领域边界、数据所有权与跨模块协作",
+      "source": "chapters/077-领域边界-数据所有权与跨模块协作.md",
+      "level": "optional",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 78,
+      "volume": 10,
+      "part": "项目开始变复杂以后",
+      "title": "分层架构、按功能组织与 Vertical Slice",
+      "source": "chapters/078-分层架构-按功能组织与-vertical-slice.md",
+      "level": "optional",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 79,
+      "volume": 10,
+      "part": "项目开始变复杂以后",
+      "title": "模块化单体怎样控制变化范围",
+      "source": "chapters/079-模块化单体怎样控制变化范围.md",
+      "level": "optional",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 80,
+      "volume": 10,
+      "part": "项目开始变复杂以后",
+      "title": "微服务真正增加了哪些工程责任",
+      "source": "chapters/080-微服务真正增加了哪些工程责任.md",
+      "level": "optional",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 81,
+      "volume": 10,
+      "part": "项目开始变复杂以后",
+      "title": "架构异味与 AI 生成项目的复杂度增长",
+      "source": "chapters/081-架构异味与-ai-生成项目的复杂度增长.md",
+      "level": "optional",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 82,
+      "volume": 10,
+      "part": "项目开始变复杂以后",
+      "title": "复杂度预算与什么时候不要增加新组件",
+      "source": "chapters/082-复杂度预算与什么时候不要增加新组件.md",
+      "level": "optional",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 83,
+      "volume": 10,
+      "part": "项目开始变复杂以后",
+      "title": "用 ADR 保存选择、代价与重新评估条件",
+      "source": "chapters/083-用-adr-保存选择-代价与重新评估条件.md",
+      "level": "optional",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 84,
+      "volume": 10,
+      "part": "项目开始变复杂以后",
+      "title": "怎样让两个工程方案真正对打",
+      "source": "chapters/084-怎样让两个工程方案真正对打.md",
+      "level": "optional",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 85,
+      "volume": 10,
+      "part": "真实用户与稳定运行",
+      "title": "REST、GraphQL、Polling、SSE 与 WebSocket",
+      "source": "chapters/085-rest-graphql-polling-sse-与-websocket.md",
+      "level": "advanced",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 86,
+      "volume": 10,
+      "part": "真实用户与稳定运行",
+      "title": "SQLite、PostgreSQL、SQL 与文档数据库",
+      "source": "chapters/086-sqlite-postgresql-sql-与文档数据库.md",
+      "level": "advanced",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 87,
+      "volume": 10,
+      "part": "真实用户与稳定运行",
+      "title": "BaaS、自建后端、托管平台、VPS 与 Serverless",
+      "source": "chapters/087-baas-自建后端-托管平台-vps-与-serverless.md",
+      "level": "advanced",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 88,
+      "volume": 10,
+      "part": "真实用户与稳定运行",
+      "title": "直接进程、Docker、Compose 与 Kubernetes",
+      "source": "chapters/088-直接进程-docker-compose-与-kubernetes.md",
+      "level": "advanced",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 89,
+      "volume": 10,
+      "part": "真实用户与稳定运行",
+      "title": "局部故障、超时、重试放大与退避",
+      "source": "chapters/089-局部故障-超时-重试放大与退避.md",
+      "level": "advanced",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 90,
+      "volume": 10,
+      "part": "真实用户与稳定运行",
+      "title": "背压、负载丢弃、隔离与队列语义",
+      "source": "chapters/090-背压-负载丢弃-隔离与队列语义.md",
+      "level": "advanced",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 91,
+      "volume": 10,
+      "part": "真实用户与稳定运行",
+      "title": "SLI、SLO、SLA 与 Error Budget",
+      "source": "chapters/091-sli-slo-sla-与-error-budget.md",
+      "level": "advanced",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 92,
+      "volume": 10,
+      "part": "真实用户与稳定运行",
+      "title": "日志、指标、追踪与 OpenTelemetry",
+      "source": "chapters/092-日志-指标-追踪与-opentelemetry.md",
+      "level": "advanced",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 93,
+      "volume": 10,
+      "part": "真实用户与稳定运行",
+      "title": "性能基线、分位数、剖析、压测与成本",
+      "source": "chapters/093-性能基线-分位数-剖析-压测与成本.md",
+      "level": "advanced",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 94,
+      "volume": 10,
+      "part": "真实用户与稳定运行",
+      "title": "契约、性质、模糊、变异与回归测试",
+      "source": "chapters/094-契约-性质-模糊-变异与回归测试.md",
+      "level": "advanced",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 95,
+      "volume": 10,
+      "part": "真实用户与稳定运行",
+      "title": "独立测试依据与可信的第二意见",
+      "source": "chapters/095-独立测试依据与可信的第二意见.md",
+      "level": "advanced",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 96,
+      "volume": 10,
+      "part": "真实用户与稳定运行",
+      "title": "怎样阅读事故复盘并提取可迁移经验",
+      "source": "chapters/096-怎样阅读事故复盘并提取可迁移经验.md",
+      "level": "advanced",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 97,
+      "volume": 10,
+      "part": "成熟项目与长期治理",
+      "title": "先画成熟开源仓库的 Repository Map",
+      "source": "chapters/097-先画成熟开源仓库的-repository-map.md",
+      "level": "reference",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 98,
+      "volume": 10,
+      "part": "成熟项目与长期治理",
+      "title": "沿用户动作阅读测试、历史、Issue 与 PR",
+      "source": "chapters/098-沿用户动作阅读测试-历史-issue-与-pr.md",
+      "level": "reference",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 99,
+      "volume": 10,
+      "part": "成熟项目与长期治理",
+      "title": "PocketBase 与 Supabase 的边界选择",
+      "source": "chapters/099-pocketbase-与-supabase-的边界选择.md",
+      "level": "reference",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 100,
+      "volume": 10,
+      "part": "成熟项目与长期治理",
+      "title": "Immich 与 PostHog 中的后台任务和工程组织",
+      "source": "chapters/100-immich-与-posthog-中的后台任务和工程组织.md",
+      "level": "reference",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 101,
+      "volume": 10,
+      "part": "成熟项目与长期治理",
+      "title": "怎样正确使用技术社区中的争议与经验",
+      "source": "chapters/101-怎样正确使用技术社区中的争议与经验.md",
+      "level": "reference",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 102,
+      "volume": 10,
+      "part": "成熟项目与长期治理",
+      "title": "Repository Health Review 与长期清理",
+      "source": "chapters/102-repository-health-review-与长期清理.md",
+      "level": "reference",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 103,
+      "volume": 10,
+      "part": "成熟项目与长期治理",
+      "title": "审查 AI 的范围扩张、依赖与架构漂移",
+      "source": "chapters/103-审查-ai-的范围扩张-依赖与架构漂移.md",
+      "level": "reference",
+      "volatile_facts": [],
+      "reference_links": []
+    },
+    {
+      "id": 104,
+      "volume": 10,
+      "part": "成熟项目与长期治理",
+      "title": "把工程判断变成可持续的项目治理",
+      "source": "chapters/104-把工程判断变成可持续的项目治理.md",
+      "level": "reference",
+      "volatile_facts": [],
+      "reference_links": []
+    }
+  ]
+}

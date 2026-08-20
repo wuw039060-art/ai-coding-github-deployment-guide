@@ -32,6 +32,8 @@ def _inline(element: ET.Element) -> str:
             if not href:
                 raise ConversionError("XHTML link is missing href")
             parts.append(f"[{content}]({href})")
+        elif tag == "br":
+            parts.append("  \n")
         else:
             raise ConversionError(f"unsupported inline XHTML tag: {tag}")
         parts.append(child.tail or "")
@@ -58,6 +60,11 @@ def _block(element: ET.Element) -> str:
             if text:
                 blocks.append(f"*{text}*")
         return "\n\n".join(blocks)
+    if tag == "img":
+        src = element.get("src")
+        if not src:
+            raise ConversionError("XHTML image is missing src")
+        return f"![{element.get('alt', '')}]({src})"
     if tag in {"ul", "ol"}:
         lines = []
         for index, item in enumerate(element, start=1):
@@ -91,6 +98,8 @@ def _block(element: ET.Element) -> str:
         return "\n".join(lines)
     if tag == "nav":
         return ""
+    if tag == "section":
+        return "\n\n".join(filter(None, (_block(child) for child in element)))
     raise ConversionError(f"unsupported block XHTML tag: {tag}")
 
 
