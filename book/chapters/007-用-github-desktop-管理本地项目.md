@@ -104,7 +104,9 @@ GitHub Desktop 提供 Discard changes 一类操作。它会把未提交文件恢
 >
 > 看到 Discard、Delete、Force 或覆盖提示时先停。列出受影响文件，确认是否已提交、已推送或有独立备份，再决定。
 
-GitHub Desktop 的视频跟做入口与时效说明见[《视频跟做卡与术语索引》](../../references/video-glossary.md)。视频只帮助辨认界面，操作前仍按当前仓库状态判断。
+> **跟做视频**
+>
+> 中文主入口见[视频跟做索引里的 GitHub Desktop 入门操作](../frontmatter/videos.md)。看到这里可以暂停阅读，用练习仓库做一次修改、查看 Diff、Commit、Push 和 Pull。视频只帮你认界面，仓库、分支和提交范围仍要自己确认。
 
 ## 常见错误
 

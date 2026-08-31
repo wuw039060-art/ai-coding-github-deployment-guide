@@ -14,12 +14,12 @@ DevTools 只显示当前浏览器已经获得的信息，不会因此获得服�
 
 ## 请求详情字段
 
-- **Headers / General**：请求地址、方法、状态码和远端地址。地址不应意外指向 `localhost` 或测试域名。
-- **Request Headers**：认证、来源、内容类型和缓存上下文。截图前遮盖 `Authorization`、Cookie 和自定义令牌。
-- **Payload**：Query、Form、JSON 或文件元数据。表单字段为空通常先查前端收集；字段正确而返回校验错误，再查 API 规则。
-- **Preview / Response**：Preview 是浏览器的友好展示，Response 更接近实际响应正文。声称返回 JSON 却收到 HTML 登录页时，应查认证和重定向。
-- **Initiator**：谁触发了请求。可用于区分 HTML、应用脚本、第三方脚本、扩展和 Service Worker。
-- **Timing**：排队、DNS、连接、TLS、等待服务器和下载阶段。单次数字不是性能结论，应重复测量并记录缓存与网络条件。
+- **Headers / General** 记录请求地址、方法、状态码和远端地址。地址不应意外指向 `localhost` 或测试域名。
+- **Request Headers** 记录认证、来源、内容类型和缓存上下文。截图前遮盖 `Authorization`、Cookie 和自定义令牌。
+- **Payload** 包含 Query、Form、JSON 或文件元数据。表单字段为空通常先查前端收集；字段正确而返回校验错误，再查 API 规则。
+- **Preview / Response** 中，Preview 是浏览器的友好展示，Response 更接近实际响应正文。声称返回 JSON 却收到 HTML 登录页时，应查认证和重定向。
+- **Initiator** 说明谁触发了请求。可用于区分 HTML、应用脚本、第三方脚本、扩展和 Service Worker。
+- **Timing** 记录排队、DNS、连接、TLS、等待服务器和下载阶段。单次数字不是性能结论，应重复测量并记录缓存与网络条件。
 
 ## 常见入口对照
 
@@ -60,7 +60,7 @@ Request blocking 可以在本机模拟图片、脚本或第三方 API 不可用�
 
 ## HAR、截图和重放安全
 
-HAR 可能包含完整 URL、Headers、Cookie、Payload 与 Response。优先分享脱敏截图或单个请求的最小结构。确需 HAR 时：
+HAR 可能包含完整 URL、Headers、Cookie、Payload 与 Response。优先分享脱敏截图或单个请求的最小结构。确需 HAR 时，按下面顺序处理。
 
 1. 使用测试账号与测试数据。
 2. 导出后用文本方式再次检查凭据和个人数据，不只依赖 Sanitized 选项。
@@ -95,5 +95,4 @@ Timing 主要阶段：
 
 ## 视频入口
 
-- Chrome Console 与 Network 入门：[Chrome DevTools: The Network Panel](https://www.youtube.com/watch?v=t1c5tNPpXjs&t=23s)。原稿记录的推荐起点为 23 秒；面板位置和筛选语法应按当前浏览器复核。
-
+- Chrome Console 与 Network 入门见[视频跟做卡里的 Chrome DevTools 入门演示](video-glossary.md)。中文主入口使用 B 站 DevTools 完整指南，YouTube 官方视频作为备用入口；面板位置和筛选语法应按当前浏览器复核。

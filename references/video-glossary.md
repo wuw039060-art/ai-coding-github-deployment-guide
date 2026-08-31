@@ -1,6 +1,6 @@
 # 视频跟做卡与术语索引
 
-视频适合辨认界面和动作顺序，不适合作为唯一事实来源。平台按钮、套餐、人数、版本要求和政策会变化；每张卡都要与当前官方文档并排使用。主章只保留视频能解决什么，完整跟做信息统一放在这里。
+视频适合辨认界面和动作顺序，不适合作为唯一事实来源。平台按钮、套餐、人数、版本要求和政策会变化；每张卡都要与当前官方文档并排使用。中文读者优先看 B 站入口，YouTube 只作为官方演示、英文补充或暂时没有合适中文视频时的备用入口。
 
 ## 视频跟做规则
 
@@ -9,7 +9,7 @@
 3. 使用练习项目、测试账号、内部测试轨道和最小权限。
 4. 每做一步核对当前对象、预期结果和回退方式，不开启自动播放连续操作。
 5. 视频与官方资料冲突时，以当前官方资料和自己账号显示的要求为准。
-6. 二维码只是一种入口；扫码后检查域名、标题与频道，不输入秘密到来历不明的页面。
+6. 扫码或点击外链后检查域名、标题与频道，不输入秘密到来历不明的页面。
 
 ## 标准视频卡
 
@@ -19,41 +19,46 @@
 作者 / 频道：
 发布日期：
 时长：
-链接：
+主链接：
+备用链接：
 解决的问题：
 适合观看的位置：
 跟做前准备：
 停止点与风险：
 界面时效核对日期：
 对应当前官方资料：
-二维码资产：
+正文嵌入位置：
 ```
 
 “符合当前版本”只说明核对日期时主要路径相符，不保证未来按钮不变。视频不能证明自己的构建、权限、地区和账号状态正确。
 
 ## Web 与部署
 
-- 浏览器 Console / Network：用于辨认前端错误、请求状态、响应头和加载时间。先在练习站点操作；真实 HAR 可能含 Cookie 与用户数据。操作细节见[Web 部署与浏览器排错参考](web-deployment.md)。
-- 静态站点发布：用于辨认仓库连接、构建和自定义域名入口。练习目标只用测试域名，发布后仍要核对提交 SHA 与实际页面。
-- Linux 服务：用于辨认 SSH、服务状态与日志入口。不要照抄防火墙、删除和权限命令；操作清单见[Linux 与服务器运行手册](linux-server.md)。
+- 浏览器 Console / Network 用于辨认前端错误、请求状态、响应头和加载时间。先在练习站点操作；真实 HAR 可能含 Cookie 与用户数据。操作细节见[Web 部署与浏览器排错参考](web-deployment.md)。
+- 静态站点发布用于辨认仓库连接、构建和自定义域名入口。练习目标只用测试域名，发布后仍要核对提交 SHA 与实际页面。
+- Linux 服务用于辨认 SSH、服务状态与日志入口。不要照抄防火墙、删除和权限命令；操作清单见[Linux 与服务器运行手册](linux-server.md)。
 
 ## Git 与 GitHub
 
-- GitHub 网页创建与上传：适合第一次认识仓库、提交和可见性；上传前排除秘密、数据库、依赖和真实用户文件。
-- GitHub Desktop：适合观察 Changes、Commit、Fetch、Pull 与 Push。每次点击前确认仓库和分支；术语与证据见[Git 与 GitHub 操作参考](git-github.md)。
-- Pull Request 与检查：适合辨认评审和自动化状态。绿色结果必须对应当前提交，合并权限仍由仓库规则决定。
+- GitHub 网页创建与上传适合第一次认识仓库、提交和可见性；上传前排除秘密、数据库、依赖和真实用户文件。
+- GitHub Desktop 适合观察 Changes、Commit、Fetch、Pull 与 Push。每次点击前确认仓库和分支；术语与证据见[Git 与 GitHub 操作参考](git-github.md)。
+- Pull Request 与检查适合辨认评审和自动化状态。绿色结果必须对应当前提交，合并权限仍由仓库规则决定。
 
 ## 后端、数据库与 Docker
 
-- 托管后端控制台：用于辨认项目、表、认证、存储和函数入口。界面点击不能代替权限负面测试；见[后端与数据库运行参考](backend-database.md)。
-- Docker / Compose：用于辨认 build、image、container、port 与 volume。不要在不清楚数据位置时跟做清理；见[Docker 与 Compose 操作参考](docker.md)。
-- 数据库迁移与恢复：只在非生产练习环境跟做。视频里的数据库名、连接串和破坏性命令必须替换并逐项审查。
+- 托管后端控制台用于辨认项目、表、认证、存储和函数入口。界面点击不能代替权限负面测试；见[后端与数据库运行参考](backend-database.md)。
+- Docker / Compose 用于辨认 build、image、container、port 与 volume。不要在不清楚数据位置时跟做清理；见[Docker 与 Compose 操作参考](docker.md)。
+- 数据库迁移与恢复只在非生产练习环境跟做。视频里的数据库名、连接串和破坏性命令必须替换并逐项审查。
 
 ## 移动应用发布
 
-- **VID-008：Release an iOS app with Flutter in 7 steps**。用于把 Bundle ID、App Store Connect 记录、Xcode 设置、Archive 和上传连成一条路径。视频发布于 2023 年，局部界面会变化；二维码资产 `assets/qrcodes/vid-008.png`。
-- **VID-009：TestFlight & Xcode — Upload, Distribute, and Beta Test Your iOS App In Under 10 Minutes! (2025)**。用于辨认上传、内部/外部测试组和设备安装；二维码资产 `assets/qrcodes/vid-009.png`。
-- **Google Play 2026 发布演示**：[How to Publish Flutter App on Google Play Store. Build, Release & Deploy App in 2026](https://www.youtube.com/watch?v=adt9A8125S4&t=50s)。练习时把目标改为内部测试，不照抄生产发布与政策答案。
+- **VID 007　Google Play 发布界面**。当前保留 [YouTube 入口](https://www.youtube.com/watch?v=adt9A8125S4)，用于辨认 Play Console、AAB 上传和内部测试路径。练习时把目标改为内部测试，不照抄生产发布与政策答案。
+- **VID 008　iOS 上架全流程**。主入口为 B 站 [ShiianAI 的 iOS App 开发上架全流程视频](https://www.bilibili.com/video/BV1U7j7zQEeQ)，备用入口为 [Flutter 官方 iOS 发布视频](https://www.youtube.com/watch?v=iE2bpP56QKc)。它用于把 Bundle ID、App Store Connect 记录、Xcode 设置、Archive 和上传连成一条路径。
+- **VID 009　TestFlight 与测试分发**。主入口为 B 站 [Winter 喵的 App Store 上架流程分享](https://www.bilibili.com/video/BV1iPH9exEeW)，备用入口为 [TestFlight 操作视频](https://www.youtube.com/watch?v=x0d8Jx3HvdI)。它用于辨认上传、测试组、测试账号和设备安装。
+
+## 微信小程序
+
+- **VID 010　微信小程序云开发与发布**。主入口为 B 站 [编程小石头的小程序云开发合集](https://www.bilibili.com/video/BV1x54y1s7pk?p=5)，备用入口为 [黑马程序员的小程序从基础到发布合集](https://www.bilibili.com/video/BV1834y1676P?p=15)。它用于观察小程序端、云数据库、云函数、云存储和发布路径怎样分工。
 
 移动端的完整证据、签名和发布清单见[移动应用签名、测试与发布参考](mobile-release.md)。
 
@@ -79,5 +84,4 @@
 
 ## 卡片维护记录
 
-每次封版扫描主章中的视频标题、外链和二维码编号。发现失效时先保留原卡的标题与用途，再更换入口并记录核对日期；不要让一个失效链接抹掉它原本要教授的能力。外链内容不受本书控制，关键判断必须在正文或参考页中有文字等价说明。
-
+每次封版扫描主章中的视频标题、外链和嵌入位置。发现失效时先保留原卡的用途，再更换入口并记录核对日期；不要让一个失效链接抹掉它原本要教授的能力。外链内容不受本书控制，关键判断必须在正文或参考页中有文字等价说明。

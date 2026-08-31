@@ -72,7 +72,7 @@
       "level": "core",
       "volatile_facts": [],
       "reference_links": [
-        "https://www.youtube.com/watch?v=AYJQi6TyPyU&t=135s"
+        "https://www.bilibili.com/video/BV1wm4y1z7Dg?p=7"
       ]
     },
     {
@@ -194,7 +194,7 @@
       "level": "core",
       "volatile_facts": [],
       "reference_links": [
-        "https://www.youtube.com/watch?v=t1c5tNPpXjs&t=23s"
+        "https://www.bilibili.com/video/BV1TbVv67EiJ"
       ]
     },
     {
@@ -256,7 +256,7 @@
       "level": "core",
       "volatile_facts": [],
       "reference_links": [
-        "https://www.youtube.com/watch?v=zFXscjUoDDA&t=77s"
+        "https://www.bilibili.com/video/BV11B4y1J7Rg"
       ]
     },
     {
@@ -337,7 +337,9 @@
       "source": "chapters/033-文件上传-对象存储-邮件-推送和-ai-api.md",
       "level": "core",
       "volatile_facts": [],
-      "reference_links": []
+      "reference_links": [
+        "https://www.bilibili.com/video/BV1x54y1s7pk?p=5"
+      ]
     },
     {
       "id": 34,
@@ -378,7 +380,7 @@
       "level": "core",
       "volatile_facts": [],
       "reference_links": [
-        "https://www.youtube.com/watch?v=E0tUio6ZgH8&t=376s"
+        "https://www.bilibili.com/video/BV12L4y187Dy?p=6"
       ]
     },
     {
@@ -410,7 +412,7 @@
       "level": "core",
       "volatile_facts": [],
       "reference_links": [
-        "https://www.youtube.com/watch?v=3kl62YSU9XA&t=60s"
+        "https://www.bilibili.com/video/BV12P4y1u76e"
       ]
     },
     {
@@ -482,7 +484,7 @@
       "level": "core",
       "volatile_facts": [],
       "reference_links": [
-        "https://www.youtube.com/watch?v=SXwC9fSwct8&t=718s"
+        "https://www.bilibili.com/video/BV14s4y1i7Vf?p=6"
       ]
     },
     {
@@ -576,8 +578,8 @@
       "level": "core",
       "volatile_facts": [],
       "reference_links": [
-        "https://www.youtube.com/watch?v=iE2bpP56QKc&t=58s",
-        "https://www.youtube.com/watch?v=x0d8Jx3HvdI&t=95s"
+        "https://www.bilibili.com/video/BV1U7j7zQEeQ",
+        "https://www.bilibili.com/video/BV1iPH9exEeW"
       ]
     },
     {
@@ -888,7 +890,9 @@
       "source": "chapters/087-baas-自建后端-托管平台-vps-与-serverless.md",
       "level": "advanced",
       "volatile_facts": [],
-      "reference_links": []
+      "reference_links": [
+        "https://www.bilibili.com/video/BV1x54y1s7pk?p=5"
+      ]
     },
     {
       "id": 88,

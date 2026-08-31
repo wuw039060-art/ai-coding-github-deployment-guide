@@ -16,7 +16,7 @@ sudo journalctl -u notes-api -b -1 --no-pager
 
 `status` 给出 systemd 当前看到的状态和少量最近日志；`journalctl` 用于缩小时间、启动批次和优先级。命令成功只证明管理器接受了请求，不证明用户功能可用。`status` 进入翻页器时按 `q` 退出，或使用 `--no-pager`。
 
-实时跟随日志：
+实时跟随日志可以这样查看。
 
 ```bash
 sudo journalctl -u notes-api -f
@@ -40,7 +40,7 @@ sudo systemctl disable notes-api
 - `reload` 是否受支持由程序和 unit 决定；先查 `CanReload` 和软件文档。
 - `enable` / `disable` 改变未来启动关系，不等同于现在已经运行或停止。
 
-受控重启后至少验证：服务状态、此次启动日志、本机健康地址、公开入口和一个核心用户操作。
+受控重启后至少验证服务状态、此次启动日志、本机健康地址、公开入口和一个核心用户操作。
 
 ## 最小 unit 与文件位置
 
@@ -62,7 +62,7 @@ RestartSec=5s
 WantedBy=multi-user.target
 ```
 
-自建系统级单元通常放在 `/etc/systemd/system/`。发行版软件包可能在 `/usr/lib/systemd/system/` 或 `/lib/systemd/system/` 提供原始单元。优先使用软件包维护的单元，并用 drop-in 只覆盖差异：
+自建系统级单元通常放在 `/etc/systemd/system/`。发行版软件包可能在 `/usr/lib/systemd/system/` 或 `/lib/systemd/system/` 提供原始单元。优先使用软件包维护的单元，并用 drop-in 只覆盖差异。
 
 ```bash
 systemctl cat notes-api
@@ -76,13 +76,13 @@ systemctl show notes-api --property=User,Group,WorkingDirectory,ExecStart,Restar
 
 1. 记录当前版本、`systemctl cat`、状态、健康结果和回滚发布。
 2. 备份要修改的精确配置；确认服务用户、工作目录、程序与环境文件都存在。
-3. 静态检查指定 unit：
+3. 静态检查指定 unit。
 
    ```bash
    systemd-analyze verify /etc/systemd/system/notes-api.service
    ```
 
-4. 让 systemd 重读 unit：
+4. 让 systemd 重读 unit。
 
    ```bash
    sudo systemctl daemon-reload
@@ -96,9 +96,9 @@ systemctl show notes-api --property=User,Group,WorkingDirectory,ExecStart,Restar
 
 ## 启动失败与重启循环
 
-日志先找第一条根因：程序路径不存在、用户无权限、工作目录错误、端口占用、环境文件缺失、依赖服务不可达或应用启动异常。后续重复退出多半只是同一根因的结果。
+日志先找第一条根因，包括程序路径不存在、用户无权限、工作目录错误、端口占用、环境文件缺失、依赖服务不可达或应用启动异常。后续重复退出多半只是同一根因的结果。
 
-短时间连续失败可能触发频率限制。根因修好后才执行：
+短时间连续失败可能触发频率限制。根因修好后才执行下面的命令。
 
 ```bash
 sudo systemctl reset-failed notes-api
@@ -111,9 +111,9 @@ sudo systemctl start notes-api
 
 ## 服务类型与重启策略
 
-- `Type=simple`：前台长期进程，systemd 在进程启动后视为开始。
-- `Type=notify`：程序真正就绪后向 systemd 发通知。
-- `Type=oneshot`：执行一次后退出，可能显示 `active (exited)`。
+- `Type=simple` 表示前台长期进程，systemd 在进程启动后视为开始。
+- `Type=notify` 表示程序就绪后向 systemd 发通知。
+- `Type=oneshot` 表示执行一次后退出，可能显示 `active (exited)`。
 
 `Restart=on-failure` 适合异常退出后恢复；`always` 连正常退出也会再次启动，不适合一次性任务。`RestartSec` 留出重试间隔。长期服务要配持续失败告警；自动恢复不是根因已经消失的证据。
 
@@ -127,7 +127,7 @@ systemd 不自动继承 SSH 终端变量。使用 `Environment` 或 `Environment
 
 ## timer 与一次性任务
 
-`.timer` 决定何时触发，实际工作通常由同名 `.service` 完成：
+`.timer` 决定何时触发，实际工作通常由同名 `.service` 完成。
 
 ```bash
 systemctl list-timers --all
@@ -174,5 +174,4 @@ sudo journalctl -u notes-api -p err --since today
 
 ## 视频入口
 
-- systemctl 与 journalctl 练习：[How To Manage Linux Services with systemctl and journalctl](https://www.youtube.com/watch?v=3kl62YSU9XA&t=60s)。原稿建议观看 1:00–12:01；服务名、权限和输出以练习主机为准。
-
+- systemctl 与 journalctl 练习见[视频跟做卡里的 Linux 服务日志](video-glossary.md)。中文主入口使用 B 站 journalctl 命令讲解，YouTube 的 systemctl 与 journalctl 演示作为备用入口；服务名、权限和输出以练习主机为准。

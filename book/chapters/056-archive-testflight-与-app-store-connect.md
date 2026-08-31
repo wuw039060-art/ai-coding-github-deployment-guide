@@ -149,10 +149,8 @@ Export Compliance 回答：
 
 AI 可以帮助整理上传错误、生成测试任务、归纳审核反馈。账号持有人仍要选择 build、控制测试范围并执行最终提交。API Key、签名证书、测试账号和交付日志在交给外部工具前要脱敏与限权。
 
-需要跟做视频时，优先看 Flutter 官方的 iOS 发布视频和较新的 TestFlight 操作视频。视频可以帮助找入口，不能替代当前 Apple 文档。推荐入口见[Flutter iOS 发布视频](https://www.youtube.com/watch?v=iE2bpP56QKc&t=58s)和[TestFlight 操作视频](https://www.youtube.com/watch?v=x0d8Jx3HvdI&t=95s)。
-
-![Flutter iOS 发布视频链接二维码](../assets/qrcodes/vid-008.png)
-
-![TestFlight 视频链接二维码](../assets/qrcodes/vid-009.png)
+> **跟做视频**
+>
+> 中文主入口见[视频跟做索引里的 iOS 上架全流程和 TestFlight 与测试分发](../frontmatter/videos.md)。先把视频当作界面地图，看清 Apple Developer、Xcode、App Store Connect、Archive、上传和测试组之间的顺序。真正提交前仍以自己的账号页面和 Apple 当前帮助为准。
 
 这一章的掌握边界很清楚。你需要能区分 Archive、Upload、Processing、TestFlight 和 App Review，知道 build number 怎样递增，能建立内部组、写测试任务、查上传失败，并把经过验证的 build 加入 submission。自动化、Xcode Cloud 和复杂多平台 bundle 可以等手工路径稳定后再学。

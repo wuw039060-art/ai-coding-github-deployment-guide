@@ -4,7 +4,7 @@
 
 ## 先区分共同模型与平台身份
 
-两条发布线都包含应用身份、签名身份、递增构建、测试人群、商店资料、审核和上线观察，但凭据不能混用：
+两条发布线都包含应用身份、签名身份、递增构建、测试人群、商店资料、审核和上线观察，但凭据不能混用。
 
 | 关系 | Android | iOS |
 |---|---|---|
@@ -63,10 +63,10 @@ Archive succeeded、upload succeeded、Processing 完成、Ready to Test、进�
 
 ## iOS 视频入口
 
-- `VID-008`：Release an iOS app with Flutter in 7 steps，用于辨认 Bundle ID、应用记录、Archive 与上传。
-- `VID-009`：TestFlight & Xcode — Upload, Distribute, and Beta Test Your iOS App In Under 10 Minutes! (2025)，用于辨认测试组和设备安装。
+- `VID 008` 使用 B 站 iOS 上架全流程视频作为主入口，用于辨认 Bundle ID、应用记录、Archive 与上传。Flutter 官方 iOS 发布视频作为备用入口。
+- `VID 009` 使用 B 站 App Store 上架流程分享作为主入口，用于辨认测试组、审核准备和设备安装。TestFlight 操作视频作为备用入口。
 
-完整卡片和二维码索引见[视频跟做卡与术语索引](video-glossary.md)。视频不替代 Apple 当前构建要求和审核资料。
+完整卡片见[视频跟做卡与术语索引](video-glossary.md)。视频不替代 Apple 当前构建要求和审核资料。
 
 ## Android / Google Play 发布身份卡
 
@@ -100,7 +100,7 @@ Play 应用签名证书指纹：
 8. 在真机记录 versionName/versionCode，完成首次启动、登录、核心读写、关闭重开和退出。
 9. 至少用一个旧 build 验证升级与旧数据兼容。
 
-Release notes 示例：
+Release notes 可以这样写。
 
 ```text
 版本 1.2.0 (17)
@@ -116,7 +116,7 @@ Release notes 示例：
 
 ## 测试者找不到应用
 
-按顺序核对：
+按顺序核对这些事项。
 
 - 浏览器和 Play 商店 App 是否登录同一个、且已加入名单的 Google 账号。
 - Release 是否真正发布到目标轨道，而不是草稿、处理中或等待补充任务。
@@ -148,7 +148,7 @@ v2.2 原稿在 2026-08-05 记录过“部分新个人账号需要至少 12 名�
 
 ## Data safety 与 App content
 
-先建立产品事实表，再填控制台：
+先建立产品事实表，再填控制台。
 
 - 哪些数据离开设备，由应用还是第三方 SDK 接收。
 - 数据用于核心功能、分析、广告、账号还是其他目的。
@@ -166,13 +166,13 @@ SDK 版本和远端开关会改变实际行为。开发、产品、运营与法�
 
 ## 发布前最终复核
 
-- **轨道**：内部、封闭、开放还是生产，影响范围是否符合批准。
-- **制品**：包名、versionCode、versionName、目标 API、支持设备、签名与校验和。
-- **人群**：测试者或国家/地区，是否意外扩大。
-- **内容**：Data safety、权限、广告、分级、隐私政策、支持入口和审核账号。
-- **时间**：审核通过后是否自动公开，managed publishing 或分阶段策略如何设置。
-- **后端**：容量、备份、监控、兼容旧客户端和支持渠道是否已运行。
-- **责任人**：AI 可以准备草稿，最终 rollout 由账号授权人员检查并确认。
+- 轨道是内部、封闭、开放还是生产，影响范围是否符合批准。
+- 制品要核对包名、versionCode、versionName、目标 API、支持设备、签名与校验和。
+- 人群要看测试者或国家/地区是否意外扩大。
+- 内容要看 Data safety、权限、广告、分级、隐私政策、支持入口和审核账号。
+- 时间要看审核通过后是否自动公开，managed publishing 或分阶段策略如何设置。
+- 后端要确认容量、备份、监控、兼容旧客户端和支持渠道是否已运行。
+- 责任人要明确。AI 可以准备草稿，最终 rollout 由账号授权人员检查并确认。
 
 保存最终摘要时脱敏。审核耗时不能写进硬性承诺；提交成功只说明进入平台流程。
 
@@ -200,4 +200,4 @@ AAB 校验和：
 
 ## 视频入口
 
-- Play Console 页面辨认：[How to Publish Flutter App on Google Play Store. Build, Release & Deploy App in 2026](https://www.youtube.com/watch?v=adt9A8125S4&t=50s)。视频从创建应用走向发布；练习时必须把目标改为内部测试，所有政策字段以自己的当前控制台为准。
+- Play Console 页面辨认见[视频跟做卡里的 Google Play 发布界面](video-glossary.md)。这一项暂时使用 YouTube 入口。视频从创建应用走向发布；练习时必须把目标改为内部测试，所有政策字段以自己的当前控制台为准。

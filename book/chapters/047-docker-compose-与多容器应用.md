@@ -106,6 +106,10 @@ AI 修改 Compose 后，先运行 `docker compose config`。再看最终配置�
 
 最后运行 `docker compose config`，把最终配置保存到练习记录。关闭项目时先用 stop，再用 down。不要带删除卷参数。确认数据库卷仍在。
 
+> **跟做视频**
+>
+> 中文主入口见[视频跟做索引里的 Docker 与 Compose 入门演示](../frontmatter/videos.md)。建议先看 Dockerfile、容器运行和 Compose 简介，再用本章的 Web 加数据库练习项目跟做。停止项目时不要带删除卷参数，除非你已经确认卷里没有要保留的数据。
+
 ## 常见误区
 
 第一个误区是把 depends_on 当成服务可用保证。它主要处理启动顺序。数据库是否准备好，应用是否能连接，还要靠健康检查和重试。

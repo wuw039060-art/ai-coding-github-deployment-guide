@@ -11,8 +11,8 @@
 - TXT SHA256: `629a74a4ccc8cfc17a1a9585a5e1c2d371c23267b9d007cec19075194e5421c1`
 - Chapters: 104
 - EPUB visible characters: 710805
-- Markdown visible characters: 461053
-- EPUB/Markdown delta: 35.1365%
+- Markdown visible characters: 461917
+- EPUB/Markdown delta: 35.0149%
 - TXT non-whitespace characters: 727759
 
 ## Errors
