@@ -32,7 +32,7 @@ AI 生成的项目可能已经有源码、依赖目录、构建产物与 `.env`�
 
 GitHub Desktop 发现目标不是 Git 仓库时，可能提供创建仓库的入口。创建后先不要 Publish。查看 Changes 与 Diff，确保范围正确，再完成第一次提交。第一次提交常叫 Initial commit，也可以用中文写“建立项目初始版本”。它应包含能重建项目所需的源码与说明，不包含依赖缓存、真实秘密和本地用户数据。
 
-新分支从当前提交开始，刚创建时文件看起来相同。在分支修改并提交后切回 `main`，新增内容会消失，因为 `main` 尚未包含提交。此时先看 Current branch 与 History，不要重建文件。分支合并后，本地 `main` 仍要 Fetch 和 Pull 才取得结果。
+新分支从当前提交开始，刚创建时文件看起来相同。在分支修改并提交后切回 `main`，新增内容会消失，因为 `main` 尚未包含提交。此时先看 Current branch 与 History，不要重建文件。若分支在 GitHub 上合并，本地切回 `main` 后再 Fetch 和 Pull 取得结果；若已经在本地合并到 `main`，结果就在本地历史中，推送后远程才会更新。
 
 ## 外部编辑器与 GitHub Desktop 的分工
 
@@ -106,7 +106,7 @@ GitHub Desktop 提供 Discard changes 一类操作。它会把未提交文件恢
 
 > **跟做视频**
 >
-> 中文主入口见[视频跟做索引里的 GitHub Desktop 入门操作](../frontmatter/videos.md)。看到这里可以暂停阅读，用练习仓库做一次修改、查看 Diff、Commit、Push 和 Pull。视频只帮你认界面，仓库、分支和提交范围仍要自己确认。
+> 中文主入口：[B 站 GitHub Desktop 入门操作](https://www.bilibili.com/video/BV1wm4y1z7Dg?p=7)；分集和备用入口见[视频索引](../frontmatter/videos.md)。看到这里可以暂停阅读，用练习仓库做一次修改、查看 Diff、Commit、Push 和 Pull。视频只帮你认界面，仓库、分支和提交范围仍要自己确认。
 
 ## 常见错误
 

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-labelledby="t d">
+<title id="t">从域名解析到 HTTP 响应</title><desc id="d">DNS 查询先返回地址；浏览器随后向入口发起请求，入口转给应用，应用按需访问数据库，响应沿原路返回。</desc>
+<style>text{font-family:'PingFang SC','Noto Sans CJK SC',sans-serif;fill:#243b53}.title{font-size:38px;font-weight:700}.head{font-size:26px;font-weight:700}.body{font-size:20px}.line{stroke:#648099;stroke-width:4;fill:none}.dash{stroke-dasharray:9 8}.box{fill:white;stroke:#8aa2b6;stroke-width:3}</style>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0l10 5-10 5z" fill="#648099"/></marker></defs>
+<rect width="1200" height="650" rx="30" fill="#f7fafc"/><text x="600" y="70" text-anchor="middle" class="title">浏览器访问一个页面：两段不同的事</text>
+<rect class="box" x="40" y="175" width="205" height="160" rx="22"/><text x="142" y="238" text-anchor="middle" class="head">浏览器</text><text x="142" y="285" text-anchor="middle" class="body">输入域名</text>
+<rect class="box" x="390" y="125" width="225" height="115" rx="22"/><text x="502" y="176" text-anchor="middle" class="head">DNS 解析器</text><text x="502" y="207" text-anchor="middle" class="body">返回可连接地址</text>
+<path class="line dash" marker-end="url(#a)" d="M245 195h137"/><path class="line dash" marker-end="url(#a)" d="M390 222H253"/><text x="318" y="155" text-anchor="middle" class="body">先查询地址</text>
+<rect class="box" x="390" y="335" width="225" height="160" rx="22"/><text x="502" y="400" text-anchor="middle" class="head">网站入口</text><text x="502" y="442" text-anchor="middle" class="body">可有 CDN／反向代理</text>
+<rect class="box" x="715" y="335" width="205" height="160" rx="22"/><text x="817" y="400" text-anchor="middle" class="head">应用服务</text><text x="817" y="442" text-anchor="middle" class="body">处理请求</text>
+<rect class="box" x="995" y="335" width="165" height="160" rx="22"/><text x="1077" y="400" text-anchor="middle" class="head">数据库</text><text x="1077" y="442" text-anchor="middle" class="body">按需访问</text>
+<path class="line" marker-end="url(#a)" d="M245 375h137m233 0h92m213 0h67"/><path class="line" marker-end="url(#a)" d="M995 455h-67m-213 0h-92m-233 0H253"/>
+<text x="317" y="352" text-anchor="middle" class="body">再发 HTTP(S)</text><text x="600" y="575" text-anchor="middle" class="body">数据库不会直接把网页回给浏览器；响应沿应用与入口返回</text>
+</svg>

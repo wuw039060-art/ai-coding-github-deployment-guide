@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="t d">
+<title id="t">运行陌生项目的三道检查</title><desc id="d">依次确认来源、限制权限并保留证据；专用工作目录不是安全沙箱。</desc>
+<style>text{font-family:'PingFang SC','Noto Sans CJK SC',sans-serif;fill:#243b53}.title{font-size:38px;font-weight:700}.head{font-size:29px;font-weight:700}.body{font-size:23px}.note{font-size:21px;fill:#526779}.card{fill:#fff;stroke:#8399ad;stroke-width:3}.line{stroke:#69839a;stroke-width:5;fill:none}</style>
+<rect width="1200" height="620" rx="30" fill="#f7fafc"/><text x="600" y="72" text-anchor="middle" class="title">运行陌生项目，先过三道门</text>
+<path class="line" d="M375 305h55m340 0h55"/><path d="M430 305l-18 -10v20zm395 0l-18 -10v20z" fill="#69839a"/>
+<rect class="card" x="55" y="150" width="320" height="355" rx="24"/><rect class="card" x="440" y="150" width="320" height="355" rx="24"/><rect class="card" x="825" y="150" width="320" height="355" rx="24"/>
+<text x="215" y="212" text-anchor="middle" class="head">① 确认来源</text><text x="215" y="280" text-anchor="middle" class="body">核对仓库与维护者</text><text x="215" y="327" text-anchor="middle" class="body">看安装脚本与依赖</text><text x="215" y="374" text-anchor="middle" class="body">留意权限与外部请求</text>
+<text x="600" y="212" text-anchor="middle" class="head">② 限制权限</text><text x="600" y="280" text-anchor="middle" class="body">使用专用工作目录</text><text x="600" y="327" text-anchor="middle" class="body">不交出真实密钥</text><text x="600" y="374" text-anchor="middle" class="body">必要时用真正的隔离环境</text>
+<text x="985" y="212" text-anchor="middle" class="head">③ 保留证据</text><text x="985" y="280" text-anchor="middle" class="body">记录版本与执行命令</text><text x="985" y="327" text-anchor="middle" class="body">保存输出和异常</text><text x="985" y="374" text-anchor="middle" class="body">出问题时能回溯</text>
+<text x="600" y="561" text-anchor="middle" class="note">专用目录便于清理和检查，但不会自动隔离进程、网络或凭据</text>
+</svg>

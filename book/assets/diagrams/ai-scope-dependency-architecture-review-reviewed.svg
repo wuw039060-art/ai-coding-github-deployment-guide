@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-labelledby="t d">
+<title id="t">AI 改动范围审查</title><desc id="d">先建立范围基线，汇总六类变化，再比较计划内、必要伴随或可选无关变化，最后只合并可解释、可验证、可恢复的修改。</desc>
+<style>text{font-family:'PingFang SC','Noto Sans CJK SC',sans-serif;fill:#3e325b}.title{font-size:37px;font-weight:700}.head{font-size:25px;font-weight:700}.body{font-size:20px}.box{fill:#fff;stroke:#8066a7;stroke-width:3}.line{stroke:#8066a7;stroke-width:4;fill:none}</style>
+<rect width="1200" height="650" rx="30" fill="#fbf9ff"/><text x="600" y="66" text-anchor="middle" class="title">先与约定比较，再评价代码写得怎样</text>
+<rect class="box" x="290" y="105" width="620" height="95" rx="22"/><text x="600" y="150" text-anchor="middle" class="head">范围基线</text><text x="600" y="182" text-anchor="middle" class="body">目标、不做、路径、依赖、数据、验收</text>
+<path class="line" d="M600 200v35"/>
+<rect class="box" x="145" y="235" width="910" height="130" rx="22"/><text x="600" y="280" text-anchor="middle" class="head">汇总实际变化</text><text x="600" y="323" text-anchor="middle" class="body">功能　·　依赖　·　数据　·　配置　·　权限　·　架构</text>
+<path class="line" d="M600 365v43H205v24m395 -24v24m395 -24v24"/>
+<rect class="box" x="40" y="432" width="330" height="105" rx="18"/><text x="205" y="474" text-anchor="middle" class="head">计划内变化</text><text x="205" y="509" text-anchor="middle" class="body">按验收证据检查</text>
+<rect class="box" x="435" y="432" width="330" height="105" rx="18"/><text x="600" y="474" text-anchor="middle" class="head">必要伴随变化</text><text x="600" y="509" text-anchor="middle" class="body">说明原因与回滚</text>
+<rect class="box" x="830" y="432" width="330" height="105" rx="18"/><text x="995" y="474" text-anchor="middle" class="head">可选或无关变化</text><text x="995" y="509" text-anchor="middle" class="body">拆任务或恢复</text>
+<text x="600" y="604" text-anchor="middle" class="body">只合并能够描述、验证、恢复的变化</text>
+</svg>

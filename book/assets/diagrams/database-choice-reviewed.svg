@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="t d">
+<title id="t">数据库类型与部署选择</title><desc id="d">SQLite 和 PostgreSQL 都属于关系数据库；文档数据库是另一种数据模型。</desc>
+<style>text{font-family:'PingFang SC','Noto Sans CJK SC',sans-serif;fill:#243b53}.title{font-size:38px;font-weight:700}.head{font-size:27px;font-weight:700}.body{font-size:21px}.box{fill:#fff;stroke:#829bb0;stroke-width:3}.line{stroke:#68849b;stroke-width:4;fill:none}</style>
+<rect width="1200" height="620" rx="30" fill="#f7fafc"/><text x="600" y="68" text-anchor="middle" class="title">先看数据模型，再看部署方式</text>
+<rect class="box" x="400" y="110" width="400" height="90" rx="20"/><text x="600" y="166" text-anchor="middle" class="head">需求与数据关系</text>
+<path class="line" d="M600 200v45H285v35m315 -35h315v35"/>
+<rect class="box" x="85" y="280" width="400" height="100" rx="20"/><text x="285" y="324" text-anchor="middle" class="head">关系数据库（SQL）</text><text x="285" y="357" text-anchor="middle" class="body">表、约束、事务与查询</text>
+<rect class="box" x="715" y="280" width="400" height="100" rx="20"/><text x="915" y="324" text-anchor="middle" class="head">文档数据库（NoSQL 一类）</text><text x="915" y="357" text-anchor="middle" class="body">按文档组织，仍需考虑查询与一致性</text>
+<path class="line" d="M285 380v48H185v32m100 -32h100v32"/>
+<rect class="box" x="55" y="460" width="260" height="105" rx="18"/><text x="185" y="505" text-anchor="middle" class="head">SQLite</text><text x="185" y="537" text-anchor="middle" class="body">嵌入式、单文件</text>
+<rect class="box" x="345" y="460" width="260" height="105" rx="18"/><text x="475" y="505" text-anchor="middle" class="head">PostgreSQL</text><text x="475" y="537" text-anchor="middle" class="body">独立服务</text>
+<text x="910" y="500" text-anchor="middle" class="body">不是“SQLite vs 关系数据库”</text><text x="910" y="535" text-anchor="middle" class="body">的二选一</text>
+</svg>

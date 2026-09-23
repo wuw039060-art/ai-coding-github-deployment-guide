@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img" aria-labelledby="t d">
+<title id="t">五种运行与管理范围</title><desc id="d">直接进程、systemd、Docker、Compose 和 Kubernetes 分别管理不同对象，并非每个项目都要依次升级。</desc>
+<style>text{font-family:'PingFang SC','Noto Sans CJK SC',sans-serif;fill:#243b53}.title{font-size:37px;font-weight:700}.head{font-size:27px;font-weight:700}.body{font-size:20px}.note{font-size:19px;fill:#526779}.box{fill:#fff;stroke:#829bb0;stroke-width:3}</style>
+<rect width="1200" height="640" rx="30" fill="#fbf9f4"/><text x="600" y="67" text-anchor="middle" class="title">运行层增加，管理范围也随之变化</text>
+<text x="600" y="108" text-anchor="middle" class="note">工具解决的范围不同；项目无需沿一条线逐级升级</text>
+<rect class="box" x="30" y="165" width="210" height="350" rx="20"/><rect class="box" x="260" y="165" width="210" height="350" rx="20"/><rect class="box" x="490" y="165" width="210" height="350" rx="20"/><rect class="box" x="720" y="165" width="210" height="350" rx="20"/><rect class="box" x="950" y="165" width="220" height="350" rx="20"/>
+<text x="135" y="220" text-anchor="middle" class="head">直接进程</text><text x="135" y="280" text-anchor="middle" class="body">当前终端</text><text x="135" y="325" text-anchor="middle" class="body">一个程序进程</text><text x="135" y="370" text-anchor="middle" class="body">适合本地验证</text>
+<text x="365" y="220" text-anchor="middle" class="head">systemd</text><text x="365" y="280" text-anchor="middle" class="body">单台 Linux 主机</text><text x="365" y="325" text-anchor="middle" class="body">启动、重启、日志</text><text x="365" y="370" text-anchor="middle" class="body">管理常驻服务</text>
+<text x="595" y="220" text-anchor="middle" class="head">Docker</text><text x="595" y="280" text-anchor="middle" class="body">镜像与容器</text><text x="595" y="325" text-anchor="middle" class="body">文件系统与进程</text><text x="595" y="370" text-anchor="middle" class="body">数据卷另行规划</text>
+<text x="825" y="220" text-anchor="middle" class="head">Compose</text><text x="825" y="280" text-anchor="middle" class="body">单台 Docker 主机</text><text x="825" y="325" text-anchor="middle" class="body">多个服务与网络</text><text x="825" y="370" text-anchor="middle" class="body">统一启停与配置</text>
+<text x="1060" y="220" text-anchor="middle" class="head">Kubernetes</text><text x="1060" y="280" text-anchor="middle" class="body">多节点集群</text><text x="1060" y="325" text-anchor="middle" class="body">副本与调度</text><text x="1060" y="370" text-anchor="middle" class="body">集群级恢复</text>
+<text x="600" y="574" text-anchor="middle" class="note">选择依据：服务数量、部署环境、维护能力与故障恢复要求</text>
+</svg>

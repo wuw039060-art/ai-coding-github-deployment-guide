@@ -4,7 +4,7 @@
 
 这些做法经常被排成一条升级路线，好像项目迟早要从终端走到 Kubernetes。现实中没有这条固定路线。它们解决的问题范围不同，后面的工具也不会自动让应用设计正确。维护良好的 systemd 服务，可能比无人理解的 Kubernetes 集群可靠。单台 VPS 上的三容器项目，Compose 往往已经足够。
 
-![直接进程、systemd、Docker、Compose 与 Kubernetes 的管理范围](../assets/diagrams/process-container-compose-kubernetes.png)
+![直接进程、systemd、Docker、Compose 与 Kubernetes 的管理范围](../assets/diagrams/process-container-compose-kubernetes-reviewed.svg)
 
 *直接进程、systemd、Docker、Compose 与 Kubernetes 的管理范围*
 
@@ -38,7 +38,7 @@ Dockerfile 是构建镜像的指令文件。它通常声明基础镜像、工作
 
 容器运行时会给进程建立隔离的文件系统、进程树和网络环境。端口必须明确发布，宿主机目录或命名卷要明确挂载。这种隔离减少了环境差异，却没有提供完整独立操作系统。容器与宿主机共享内核，安全更新、运行时配置和主机权限仍需维护。
 
-容器最重要的收益，是把应用运行所需的版本和文件变成可重复构建的产物。镜像要使用不可变版本标签，发布前在测试环境运行同一镜像。容器自己的可写层应按可丢弃处理，用户上传、SQLite 文件、数据库目录和队列状态需要放入明确的持久卷或外部服务。镜像构建成功只证明 Dockerfile 能生成镜像，容器显示 `running` 只证明主进程尚未退出。
+容器最重要的收益，是把应用运行所需的版本和文件封装为可重复分发的产物。版本标签仍可能被重新指向，精确固定镜像应记录内容摘要 digest；只有仓库明确实施不可变标签策略时，才能依赖该策略。发布前在测试环境运行同一摘要的镜像，并定期通过受控更新获取安全修复。容器自己的可写层应按可丢弃处理，用户上传、SQLite 文件、数据库目录和队列状态需要放入明确的持久卷或外部服务。镜像构建成功只证明 Dockerfile 能生成镜像，容器显示 `running` 只证明主进程尚未退出。相关区别见 [Docker 镜像固定说明](https://docs.docker.com/build/building/best-practices/#pin-base-image-versions)。
 
 安全边界也需要单独处理。镜像要选择可信来源并固定适用版本，容器尽量使用非 root 用户，只发布必要端口，Secret 通过运行环境注入。把 Docker Socket 挂进普通容器会给它很强的宿主机控制能力，不能为了方便部署随意开放。
 
@@ -48,7 +48,7 @@ Dockerfile 是构建镜像的指令文件。它通常声明基础镜像、工作
 
 Compose 适合本地开发、演示环境和许多单机生产项目。服务名组成默认网络中的可解析名称，因此 Web 可以使用 `db` 访问数据库。`depends_on` 能表达部分启动关系，实际可用性仍应由健康检查、连接超时与应用重试共同处理。
 
-操作 Compose 时要分清停止、删除和删除数据。`docker compose down` 默认删除项目容器与网络，不会删除命名卷。加上 `--volumes` 会删除卷。如果数据库数据位于该卷，这一步可能造成不可恢复的数据丢失。书中的普通停止流程不使用这个选项，清理卷之前必须确认目标项目、备份和恢复方法。
+操作 Compose 时要分清停止、删除和删除数据。`docker compose down` 默认删除项目容器与网络，不会删除命名卷。加上 `--volumes` 会删除配置中声明的命名卷和附着的匿名卷，标为 external 的卷不在其删除范围。如果数据库数据位于被删除的卷，这一步可能造成不可恢复的数据丢失。只想停止服务可用 `docker compose stop`；清理卷之前必须确认目标项目、备份和恢复方法，具体范围见 [Compose 命令说明](https://docs.docker.com/reference/cli/docker/compose/down/)。
 
 一次有意义的 Compose 演练可以这样安排。先启动完整项目并创建测试数据，随后重建 Web 容器，确认数据仍在；再停止数据库，观察 Web 的超时和错误信息；最后更新 Web，检查迁移、健康状态和日志，失败时切回旧镜像。
 

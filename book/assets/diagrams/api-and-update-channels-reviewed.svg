@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 670" role="img" aria-labelledby="t d">
+<title id="t">数据接口和更新通道是两次选择</title><desc id="d">上排 REST 风格 HTTP API 与 GraphQL 描述数据读取和修改；下排 Polling、SSE、WebSocket 描述后续变化如何抵达客户端。</desc>
+<style>text{font-family:'PingFang SC','Noto Sans CJK SC',sans-serif;fill:#243b53}.title{font-size:37px;font-weight:700}.head{font-size:28px;font-weight:700}.body{font-size:21px}.note{font-size:20px;fill:#526779}.box{fill:#fff;stroke:#829bb0;stroke-width:3}</style>
+<rect width="1200" height="670" rx="30" fill="#f7fafc"/><text x="600" y="67" text-anchor="middle" class="title">先选数据接口，再选更新通道</text>
+<text x="600" y="125" text-anchor="middle" class="head">读写数据：请求怎样表达？</text>
+<rect class="box" x="80" y="150" width="490" height="165" rx="22"/><rect class="box" x="630" y="150" width="490" height="165" rx="22"/>
+<text x="325" y="207" text-anchor="middle" class="head">REST 风格 HTTP API</text><text x="325" y="255" text-anchor="middle" class="body">资源 URL、HTTP 方法、状态码</text>
+<text x="875" y="207" text-anchor="middle" class="head">GraphQL</text><text x="875" y="255" text-anchor="middle" class="body">Schema、查询字段与变更操作</text>
+<text x="600" y="366" text-anchor="middle" class="note">两种接口都可搭配下面的任一种更新方式；按实际需求选组合</text>
+<text x="600" y="425" text-anchor="middle" class="head">获知后续变化：消息怎样到达？</text>
+<rect class="box" x="45" y="450" width="340" height="155" rx="22"/><rect class="box" x="430" y="450" width="340" height="155" rx="22"/><rect class="box" x="815" y="450" width="340" height="155" rx="22"/>
+<text x="215" y="505" text-anchor="middle" class="head">Polling</text><text x="215" y="550" text-anchor="middle" class="body">客户端定期询问</text>
+<text x="600" y="505" text-anchor="middle" class="head">SSE</text><text x="600" y="550" text-anchor="middle" class="body">服务端持续推送文本事件</text>
+<text x="985" y="505" text-anchor="middle" class="head">WebSocket</text><text x="985" y="550" text-anchor="middle" class="body">双向消息连接</text>
+</svg>

@@ -6,7 +6,7 @@ Flutter 可以生成 iOS 和 macOS 目标，最后仍要进入 Xcode 与 Apple �
 
 ![Apple 签名与 Profile 关系](../assets/diagrams/apple-signing-assets.png)
 
-*图 55-1　Bundle ID、证书、设备、权限和分发方式共同决定一个 Profile 是否可用。等价说明见本章“Provisioning Profile 连接多项条件”。*
+*图 55-1　Bundle ID、证书、能力和分发方式共同决定一个 Profile 是否可用；设备名单只适用于需要登记设备的分发类型。等价说明见本章“Provisioning Profile 连接多项条件”。*
 
 ## Apple Account 与开发者会员
 
@@ -18,7 +18,7 @@ Apple Account 只是登录身份。要发布到 App Store、TestFlight 或使用
 
 ```text
 主体 / Team：
-Apple ID：
+Apple Account 登录身份：
 Bundle ID：
 应用名称：
 平台：
@@ -69,7 +69,7 @@ CI 上的签名问题要单独看。开发者本机能 Archive，不代表远程
 
 ## 权限说明写在 Info.plist
 
-相机、相册、定位、麦克风、蓝牙和通知等能力，通常需要在 Info.plist 或能力设置中写明用途。用户看到的权限弹窗来自这里。文案要解释具体功能，不要写“需要权限以正常使用”。审核人员会把文案、实际调用和隐私政策一起看。
+相机、相册、定位、麦克风和蓝牙等敏感访问，通常需要在 Info.plist 中填写对应的用途说明；推送通知走用户授权请求与相应能力配置，不能笼统当作一条 Info.plist 用途说明。文案要解释具体功能，不要写“需要权限以正常使用”。审核人员会把文案、实际调用和隐私政策一起看。
 
 Entitlements 则描述更高层的平台能力，例如 iCloud、Associated Domains、Push、Keychain Sharing、Sign in with Apple 等。添加能力可能需要在开发者后台启用，也可能改变 Profile。代码里引入一个插件，不代表 Apple 后台配置自动完成。
 
@@ -115,9 +115,9 @@ Archive 前至少走一次真机 Release 验证。
 
 开发构建能跑，不能替代 Archive 前验证。Xcode 连接真机运行的包、TestFlight 包和 App Store 包可能使用不同签名与分发路径。每条路径都要留下证据。
 
-## 一个团队交接案例
+## 一个团队交接情境
 
-一个外包团队完成 Flutter 应用后，只交付源码和 IPA。客户能安装当前包，却没有开发者团队权限、证书私钥、Bundle ID 控制权和 App Store Connect 角色。几个月后需要修复崩溃，客户发现无法上传新构建，也不知道旧包使用哪个提交生成。
+用一个交接情境检查资产是否齐全。外包团队完成 Flutter 应用后，只交付源码和 IPA。客户或许能安装当前包，却没有开发者团队权限、证书私钥、Bundle ID 控制权和 App Store Connect 角色。以后需要修复崩溃时，客户就无法独立上传新构建，也不知道旧包使用哪个提交生成。
 
 可交接的版本应包含源码提交、依赖锁文件、Bundle ID、Team、签名方式、Profile 说明、Archive 记录、构建号、后端环境、商店账号角色和未覆盖风险。密钥不随意打包发送，但责任和恢复路径要写清楚。
 

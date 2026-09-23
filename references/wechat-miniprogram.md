@@ -140,10 +140,13 @@ AppSecret 代表服务端调用微信接口的高权限身份，不能放进小�
 
 ## 当前资料入口
 
+<div class="keep-together">
+
+每次操作前重新核对下列入口，不把网页中的数字和按钮永久复制进正文。若入口调整，从微信开放文档首页按“框架、网络、隐私、发布”重新查找。
+
 - [微信小程序开发框架](https://developers.weixin.qq.com/miniprogram/dev/framework/)
 - [小程序发布流程](https://developers.weixin.qq.com/miniprogram/dev/framework/quickstart/release.html)
 - [小程序网络能力](https://developers.weixin.qq.com/miniprogram/dev/framework/ability/network.html)
 - [小程序用户隐私保护](https://developers.weixin.qq.com/miniprogram/dev/framework/user-privacy/)
 
-这些链接用于每次操作前复核，不把网页中的数字和按钮永久复制进正文。若入口调整，从微信开放文档首页按“框架、网络、隐私、发布”重新查找。
-
+</div>

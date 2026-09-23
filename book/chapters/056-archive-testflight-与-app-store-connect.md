@@ -41,13 +41,13 @@ Xcode Organizer 是个人项目最直观的入口。它把 Archive、签名验�
 
 上传失败时看第一条具体错误。常见原因包括 Bundle ID 不匹配、build number 已使用、图标缺失、entitlement 与 Profile 不一致、嵌入 Framework 架构不合规、使用不受支持的构建工具。不要从论坛复制脚本去删除签名或改 archive。回到源项目修复，再产生新 Archive。
 
-一个小案例能说明状态判断的价值。团队上传 build 18 后，Xcode 显示传输完成，但 App Store Connect 标记 Failed。详情指出某个嵌入 Framework 带有不支持架构。正确处理是保存 Delivery Log，回到 Flutter 插件和 iOS 原生依赖，升级或替换问题库，然后生成 build 19 的新 Archive。不要直接打开 archive 删除文件，也不要重复上传 build 18 期望平台放过。
+设想团队上传 build 18 后，Xcode 显示传输完成，但 App Store Connect 的构建处理未通过，详情指出某个嵌入 Framework 带有不支持的架构。应保存上传与处理错误，回到 Flutter 插件和 iOS 原生依赖，升级或替换问题库，然后生成 build 19 的新 Archive。不要直接打开 archive 删除文件，也不要重复上传 build 18 期望平台放过。
 
 修好以后，旧失败记录仍然有用。它说明 build 18 没有进入测试，后续反馈不能归到它身上。build 19 若处理完成，再加入内部组，并把测试报告绑定到 build 19。这个分层记录能防止“我明明上传过”变成团队记忆里的模糊一团。
 
 ## 状态名称要对应页面
 
-iOS 发布会连续出现多个很像完成的状态。Archive 成功在 Xcode。Upload 成功在上传工具。Processing、Failed 和 Complete 属于构建处理。Ready to Submit、Waiting for Review、In Review、Rejected 和 Approved 属于版本审核。Testing、Expired 等状态属于 TestFlight。
+iOS 发布会连续出现多个很像完成的状态。Archive 成功在 Xcode。Upload 成功在上传工具。构建上传处理状态与 TestFlight 的构建状态、版本审核状态分别显示；同样的词可能出现在不同页面。记录时要写页面名称和原文状态。Apple 的[构建状态说明](https://developer.apple.com/help/app-store-connect/reference/app-build-statuses/)列出 Invalid Binary、Missing Compliance、Ready to Submit、Testing、Expired 等状态，版本审核另有状态列表。
 
 状态用英文保留，是为了让读者能在控制台直接找到。中文解释帮助理解，不另造界面上不存在的新名字。截图时要包含页面标题、状态、版本和 build。只说“Apple 那边红了”，无法判断是上传文件失败、缺合规资料，还是版本被审核退回。
 
@@ -124,7 +124,7 @@ App Store 没有传统意义上的二进制回滚。坏 build 到达用户设备
 
 无法复现时，提供版本、测试账号、操作视频或日志，说明差异和进入路径。不要只回复“我的手机正常”。若认为审核误解，引用实际功能和当前指南，给出可验证步骤。Resolution Center 沟通要保留上下文。上传新 build 后，明确旧问题在哪个 build 修复，并确保新 build 已加入版本。
 
-一个常见退回案例是蓝牙应用没有演示模式。审核人员没有硬件，只能看到连接失败。团队增加受控演示模式，使用合成设备数据，审核说明写清入口和差别。新 build 先在内部组验证，再提交外部测试或审核。演示模式帮助审核进入功能，不能伪造实际硬件兼容性。
+例如蓝牙应用依赖专用硬件，而审核人员无法取得设备时，应在审核说明中提供可执行的访问安排。若产品允许受控演示模式，可使用合成设备数据，并写清演示入口与真实设备能力的区别。新 build 先在内部组验证，再提交外部测试或审核。演示模式帮助审核进入功能，不能伪造实际硬件兼容性。
 
 ## 发布记录
 
@@ -151,6 +151,6 @@ AI 可以帮助整理上传错误、生成测试任务、归纳审核反馈。�
 
 > **跟做视频**
 >
-> 中文主入口见[视频跟做索引里的 iOS 上架全流程和 TestFlight 与测试分发](../frontmatter/videos.md)。先把视频当作界面地图，看清 Apple Developer、Xcode、App Store Connect、Archive、上传和测试组之间的顺序。真正提交前仍以自己的账号页面和 Apple 当前帮助为准。
+> 中文主入口：[B 站 iOS 上架全流程](https://www.bilibili.com/video/BV1U7j7zQEeQ)和[B 站 TestFlight 与测试分发](https://www.bilibili.com/video/BV1iPH9exEeW)；备用入口见[视频索引](../frontmatter/videos.md)。先把视频当作界面地图，看清 Apple Developer、Xcode、App Store Connect、Archive、上传和测试组之间的顺序。真正提交前仍以自己的账号页面和 Apple 当前帮助为准。
 
 这一章的掌握边界很清楚。你需要能区分 Archive、Upload、Processing、TestFlight 和 App Review，知道 build number 怎样递增，能建立内部组、写测试任务、查上传失败，并把经过验证的 build 加入 submission。自动化、Xcode Cloud 和复杂多平台 bundle 可以等手工路径稳定后再学。

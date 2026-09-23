@@ -51,7 +51,7 @@ LOG_LEVEL=info
 
 ## GitHub Actions Secrets
 
-CI 里的秘密应只在需要的工作流注入。部署生产的密钥，不应给所有分支、所有 Pull Request 和所有人可见。第三方贡献者的 PR 更要小心，不能让未信任代码读取生产密钥。
+CI 里的秘密应只在需要的工作流注入。部署生产的密钥，不应给所有分支、所有 Pull Request 和所有人可见。第三方贡献者的 PR 更要小心，不能让未信任代码读取生产密钥。GitHub 对普通 fork PR 默认不传递 Actions Secrets；这不是所有触发器的通用保证，尤其要审查 `pull_request_target` 与检出并运行 PR 代码的组合。具体边界见 [GitHub 官方安全说明](https://docs.github.com/en/actions/reference/security/securely-using-pull_request_target)。
 
 工作流日志要避免打印秘密。很多平台会自动遮蔽已登记的 Secret 值，但遮蔽不是安全边界。拼接、编码、截断或写入文件后再打印，可能绕过遮蔽。排错时不要加 `env` 全量输出。
 
