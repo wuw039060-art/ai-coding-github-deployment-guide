@@ -1,17 +1,17 @@
 <p align="center">
-  <img src="assets/cover-v2.2.0-preview.jpg" alt="《AI 写代码之后》中文封面" width="420">
+  <img src="assets/cover-v2.3.0-preview.jpg" alt="《AI 写代码之后》中文封面" width="420">
 </p>
 
 <h1 align="center">AI 写代码之后</h1>
 
 <p align="center">给非专业开发者的 AI Coding 工程手册</p>
 
-<p align="center"><strong>作者 Stellan</strong></p>
+<p align="center"><strong>作者 Stallen</strong></p>
 
 <p align="center">AI Coding · Vibe Coding · GitHub · Web 部署 · Linux · Docker · 数据库 · Flutter · App 发布</p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/版本-2.2.0-176875" alt="当前版本 2.2.0">
+  <img src="https://img.shields.io/badge/版本-2.3.0-176875" alt="当前版本 2.3.0">
   <img src="https://img.shields.io/badge/正文-10%20卷%20·%20104%20章-284b63" alt="全书十卷 104 章">
   <img src="https://img.shields.io/badge/核心格式-EPUB%203.3%20·%20PDF-9c6644" alt="核心格式 EPUB 3.3 和 PDF">
   <img src="https://img.shields.io/badge/语言-简体中文-b23a48" alt="语言 简体中文">
@@ -19,9 +19,9 @@
 
 <p align="center">
   <a href="START-HERE.md"><strong>从这里开始</strong></a> ·
-  <a href="https://github.com/wuw039060-art/ai-coding-github-deployment-guide/releases/download/V2.2.0/AI.-v2.2.0.epub">EPUB</a> ·
-  <a href="https://github.com/wuw039060-art/ai-coding-github-deployment-guide/releases/download/V2.2.0/AI.-v2.2.0.pdf">PDF</a> ·
-  <a href="https://github.com/wuw039060-art/ai-coding-github-deployment-guide/releases/tag/V2.2.0">全部格式</a> ·
+  <a href="https://github.com/wuw039060-art/ai-coding-github-deployment-guide/releases/download/V2.3.0/AI-After-Coding-v2.3.0.epub">EPUB</a> ·
+  <a href="https://github.com/wuw039060-art/ai-coding-github-deployment-guide/releases/download/V2.3.0/AI-After-Coding-v2.3.0.pdf">PDF</a> ·
+  <a href="https://github.com/wuw039060-art/ai-coding-github-deployment-guide/releases/tag/V2.3.0">下载页面</a> ·
   <a href="FORMATS.md">格式说明</a> ·
   <a href="CONTENTS.md">完整目录</a>
 </p>
@@ -30,13 +30,13 @@
 
 这是一套为非科班 AI Coding 使用者重新组织的软件工程学习与参考体系。它从一个直接的问题展开。AI 已经把代码写出来了，然后呢？你怎样看懂它修改了什么，怎样把项目交给真实用户，怎样定位错误，又怎样判断一句“已经完成”究竟有多少证据。
 
-## v2.3 修订状态
+## v2.3 正式版
 
-当前正式发布版仍是 2.2.0。仓库中的 [`book/`](book/) 以从 v2.2.0 EPUB 确定性恢复的 104 章 Markdown 为基线，正在开展 v2.3 减重修订；它不代表 v2.3 全书正文已经完成，也不改变现有 2.2.0 下载入口。
+v2.3.0 已提供完整的 [EPUB](https://github.com/wuw039060-art/ai-coding-github-deployment-guide/releases/download/V2.3.0/AI-After-Coding-v2.3.0.epub) 和 [PDF](https://github.com/wuw039060-art/ai-coding-github-deployment-guide/releases/download/V2.3.0/AI-After-Coding-v2.3.0.pdf) 下载。作者为 Stallen。仓库中的 [`book/`](book/) 保存十卷、104 章的 Markdown 源文件。
 
-本轮修订保留十卷、104 章、原编号和高级知识，目标是通过系统性压缩、去重和外置操作细节，把主 PDF 控制在 450 到 500 页。第 1、19、40、54、70、91 章已经完成跨类型试改，合计从 51,714 个可见字符压缩到 28,488，减重 44.91%，六章各自都在 40% 到 45% 目标区间内。该结果验证了写法，不等于其余 98 章已经修订。
+本版保留原编号和高级知识。主 PDF 为 496 页；EPUB 的目录保留在阅读器导航面板，不再作为几十页正文插在书首。不同阅读器的页码可能随字体、字号和屏幕尺寸变化。
 
-源恢复基线见 [`AUDIT-v2.3.md`](AUDIT-v2.3.md)，当前结构验证见 [`VERIFICATION.md`](VERIFICATION.md)，六章结果见 [`PILOT-v2.3.md`](PILOT-v2.3.md)。操作细节已开始迁入 [`references/`](references/)；完整设计与执行计划位于 [`docs/superpowers/`](docs/superpowers/)。
+全书审查见 [`REVIEW-v2.3.md`](REVIEW-v2.3.md)，结构验证见 [`VERIFICATION.md`](VERIFICATION.md)。扩展操作细节在 [`references/`](references/)；构建脚本在 [`scripts/build_release.py`](scripts/build_release.py)。
 
 维护者可以运行这些命令。
 
@@ -96,7 +96,7 @@ make test     # 运行恢复、转换、验证和审计测试
 
 ## 阅读格式
 
-核心格式为可重排 EPUB 和可搜索 PDF。另提供 AZW3、KEPUB、FB2、DOCX、RTF、TXT、HTMLZ 和 Legacy MOBI。现代 Kindle 用户优先把 EPUB 发送到 Send to Kindle，MOBI 只用于旧设备兼容。
+v2.3.0 提供可重排 EPUB 和可搜索 PDF。现代 Kindle 用户可以尝试把 EPUB 发送到 Send to Kindle；旧版的其他格式仍可从 v2.2.0 发布页取得，但不代表 v2.3.0 正文。
 
 不知道选什么时，优先使用 EPUB。iPhone、iPad 和 Apple Books 适合 EPUB。Windows 与 macOS 适合 PDF 或 EPUB。详细选择说明见 [FORMATS.md](FORMATS.md)。
 
@@ -120,6 +120,6 @@ Star 对我最重要的意义，是让我知道这套内容确实有人在使用
 
 - 书名　《AI 写代码之后》
 - 副标题　给非专业开发者的 AI Coding 工程手册
-- 作者　Stellan
-- 当前版本　2.2.0
-- 规模　十卷、104 章、约 67.8 万中文字符
+- 作者　Stallen
+- 当前版本　2.3.0
+- 规模　十卷、104 章；PDF 496 页

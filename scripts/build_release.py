@@ -10,6 +10,7 @@ import argparse
 import json
 import re
 import subprocess
+import zipfile
 from pathlib import Path
 from urllib.parse import unquote
 
@@ -17,6 +18,7 @@ from urllib.parse import unquote
 ROOT = Path(__file__).resolve().parents[1]
 BOOK = ROOT / "book"
 OUT = ROOT / "dist" / "v2.3"
+AUTHOR = "Stallen"
 FRONT = ("title", "dedication", "preface", "how-to-use", "videos")
 BACK = ("glossary", "copyright")
 REFERENCE_NAMES = (
@@ -148,11 +150,11 @@ def pandoc(input_file: Path, output: Path, *, fmt: str, toc: bool = False) -> No
     cmd = [
         "pandoc", str(input_file), "-f", "markdown-implicit_figures",
         "--standalone", "--metadata", "lang=zh-CN",
-        "--metadata", "title=AI 写代码之后", "--css",
+        "--metadata", "title=AI 写代码之后", "--metadata", f"author={AUTHOR}", "--css",
         str(BOOK / "assets" / "styles" / "v2.3.css"),
     ]
     if toc:
-        cmd += ["--toc", "--toc-depth=2"]
+        cmd += ["--toc", "--toc-depth=1"]
     if fmt == "epub":
         cmd += ["-t", "epub3", "--epub-cover-image", str(BOOK / "assets" / "cover.png")]
     elif fmt == "html":
@@ -161,6 +163,24 @@ def pandoc(input_file: Path, output: Path, *, fmt: str, toc: bool = False) -> No
         raise ValueError(fmt)
     cmd += ["-o", str(output)]
     subprocess.run(cmd, cwd=ROOT, check=True)
+
+
+def remove_navigation_from_reading_order(epub: Path) -> None:
+    """Keep the EPUB navigation panel without paging through it as body text."""
+    replacement = epub.with_suffix(".tmp.epub")
+    try:
+        with zipfile.ZipFile(epub) as source, zipfile.ZipFile(replacement, "w") as target:
+            for entry in source.infolist():
+                content = source.read(entry.filename)
+                if entry.filename == "EPUB/content.opf":
+                    old = b'<itemref idref="nav" />'
+                    if content.count(old) != 1:
+                        raise ValueError("expected one EPUB navigation spine item")
+                    content = content.replace(old, b'<itemref idref="nav" linear="no" />')
+                target.writestr(entry, content)
+        replacement.replace(epub)
+    finally:
+        replacement.unlink(missing_ok=True)
 
 
 def main() -> None:
@@ -172,7 +192,9 @@ def main() -> None:
     full_md = OUT / "AI写代码之后-v2.3.0-build.md"
     write_markdown(all_paths, anchors, full_md)
     if args.epub:
-        pandoc(full_md, OUT / "AI写代码之后-v2.3.0.epub", fmt="epub", toc=True)
+        epub = OUT / "AI写代码之后-v2.3.0.epub"
+        pandoc(full_md, epub, fmt="epub", toc=True)
+        remove_navigation_from_reading_order(epub)
     pdf_md = OUT / "AI写代码之后-v2.3.0-print.md"
     write_markdown([BOOK / "frontmatter" / "cover.md", *all_paths], anchors, pdf_md, with_print_contents=True)
     pandoc(pdf_md, OUT / "AI写代码之后-v2.3.0-print.html", fmt="html")
