@@ -83,11 +83,3 @@ XSS 是把不可信内容当脚本执行。HttpOnly Cookie 不易被脚本直接
 若发现串用户数据，立即停止对应缓存规则，清除受影响内容，保留日志并启动事件响应。修复后用不同地区、设备和账户重复验证。缓存命中率高不代表策略好，串数据的高命中是事故。
 
 发布新前端后一部分用户仍看到旧版本，先比较 HTML、脚本文件名、响应头和 CDN 状态。脚本来自 disk cache 本身很正常，带内容哈希且没有变化的资源应当复用。只有确认实际内容与该版本预期不符，才继续查资源命名、缓存头和发布产物是否一致。CDN 仍返回旧文件时，按平台清除指定 URL 或发布新文件名。Service Worker 仍提供旧缓存时，检查它的更新和激活策略。
-
-## 本章验收清单
-
-能解释 Cookie、Session 和 Token 分别存在哪里、证明什么、怎样失效。知道 HttpOnly、Secure、SameSite、CORS 和 CSRF 不是同一层防护。能识别浏览器缓存、Service Worker、CDN 和应用缓存。不会让账户响应进入公共缓存。
-
-最小练习从 DevTools Network 开始。访问一个公开静态资源，观察 Cache-Control、ETag、Age 和 Size/Transferred。刷新一次，比较是否来自 memory cache、disk cache 或 304。只观察，不清生产 CDN。完整浏览器路径见第十九章。
-
-AI 可以检查脱敏后的 Set-Cookie 属性、Cache-Control、CDN 头和登录循环证据，设计两个账户隔离测试。不要提供 Cookie、Token、签名 URL、真实用户响应和服务端秘密。认证策略、会话撤销、生产缓存清除和用户数据事故需要人工确认。下一章回到页面代码，说明 HTML、CSS、JavaScript、前端和后端如何分工。

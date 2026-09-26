@@ -1,0 +1,303 @@
+@charset "UTF-8";
+
+/*
+ * Reflowable EPUB stylesheet.
+ * Each level-one section is already a separate spine document. Do not add
+ * page-break-before here: several mobile readers otherwise insert a blank
+ * page before every chapter.
+ */
+html {
+  writing-mode: horizontal-tb;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0 .12em;
+  color: #20262b;
+  background: #fff;
+  font-family: "Songti SC", STSong, "Noto Serif CJK SC", SimSun, serif;
+  font-size: 1em;
+  line-height: 1.62;
+  letter-spacing: .012em;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+h1,
+h2,
+h3 {
+  color: #183f51;
+  font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  line-height: 1.36;
+  text-align: left;
+  break-before: auto;
+  page-break-before: auto;
+  break-after: avoid;
+  page-break-after: avoid;
+}
+
+h1 {
+  margin: 1.05em 0 .72em;
+  font-size: 1.68em;
+  letter-spacing: .025em;
+}
+
+h2 {
+  margin: 1.28em 0 .58em;
+  padding-bottom: .22em;
+  border-bottom: .07em solid #adc6ca;
+  font-size: 1.26em;
+}
+
+h3 {
+  margin: 1.12em 0 .48em;
+  font-size: 1.1em;
+}
+
+p {
+  margin: .52em 0;
+  orphans: 2;
+  widows: 2;
+}
+
+ul,
+ol {
+  margin: .56em 0;
+  padding-left: 1.5em;
+}
+
+li {
+  margin: .2em 0;
+}
+
+a {
+  color: #006b78;
+  text-decoration-thickness: .06em;
+  overflow-wrap: anywhere;
+}
+
+code,
+pre {
+  font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+}
+
+code {
+  font-size: .87em;
+  overflow-wrap: anywhere;
+}
+
+pre {
+  margin: 1em 0;
+  padding: .78em .84em;
+  border-left: .28em solid #2e7d86;
+  background: #f2f7f7;
+  font-size: .84em;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  break-inside: auto;
+  page-break-inside: auto;
+}
+
+blockquote {
+  margin: 1.05em 0;
+  padding: .58em .82em;
+  border-left: .28em solid #c98233;
+  background: #fff7ea;
+  break-inside: auto;
+  page-break-inside: auto;
+}
+
+blockquote p {
+  margin: .36em 0;
+}
+
+table {
+  width: 100%;
+  margin: 1em 0;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: .82em;
+  line-height: 1.48;
+  text-align: left;
+  break-inside: auto;
+  page-break-inside: auto;
+}
+
+th,
+td {
+  padding: .36em .38em;
+  border: .06em solid #9eaaae;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+
+th {
+  background: #e8f0f1;
+}
+
+img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 68vh;
+  margin: .85em auto .35em;
+  object-fit: contain;
+  break-inside: auto;
+  page-break-inside: auto;
+}
+
+p > img + br,
+p > img:first-child:last-child {
+  margin-bottom: 0;
+}
+
+em {
+  color: #52636a;
+}
+
+.book-toc > h1 {
+  margin-bottom: .55em;
+}
+
+.book-toc > p {
+  margin-bottom: 1.3em;
+  color: #647277;
+  font-size: .9em;
+}
+
+.book-toc h2 {
+  margin: 1.25em 0 .45em;
+  padding-bottom: .18em;
+  border-bottom-color: #c7d6d8;
+  font-size: 1.08em;
+}
+
+.book-toc ul {
+  margin: .2em 0 .85em;
+  padding-left: 1.15em;
+}
+
+.book-toc li {
+  margin: .26em 0;
+  line-height: 1.48;
+}
+
+.book-toc a {
+  text-decoration: none;
+}
+
+/* Custom title page: informative, but short enough for a small phone. */
+section#title {
+  padding: 23vh .7em 8vh;
+  text-align: center;
+}
+
+section#title h1 {
+  margin: 0 0 .65em;
+  color: #153d50;
+  font-size: 2.05em;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.book-subtitle {
+  margin: 0 auto 1.8em;
+  color: #315b68;
+  font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  font-size: 1.08em;
+  font-weight: 600;
+}
+
+.book-audience {
+  max-width: 26em;
+  margin: 0 auto 2.8em;
+  color: #56666c;
+  font-size: .92em;
+  line-height: 1.65;
+}
+
+.book-author {
+  margin: 0 auto .5em;
+  color: #20262b;
+  font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  font-size: 1.08em;
+  font-weight: 600;
+  letter-spacing: .08em;
+}
+
+.book-edition {
+  margin: 0 auto;
+  color: #7a878b;
+  font-size: .8em;
+}
+
+/* A short dedication should feel intentional, not like missing content. */
+section#dedication {
+  padding: 22vh 1em 8vh;
+  text-align: center;
+}
+
+section#dedication h1 {
+  margin-bottom: 1.7em;
+  font-size: 1.22em;
+  text-align: center;
+}
+
+section#dedication p {
+  margin: .72em auto;
+  max-width: 25em;
+}
+
+section#dedication .dedication-lead {
+  color: #183f51;
+  font-size: 1.08em;
+  font-weight: 600;
+}
+
+section#dedication .dedication-signoff {
+  margin-top: 2em;
+  color: #6b777b;
+  font-size: .9em;
+}
+
+/* Volume dividers are real reading landmarks, not empty spacer pages. */
+section[id^="vol-"] {
+  margin-top: 2.2em;
+  padding: 1.4em .5em 1em;
+  border-top: .22em solid #2e7d86;
+}
+
+section[id^="vol-"] h1 {
+  margin-top: 0;
+  font-size: 1.62em;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 0;
+    line-height: 1.76;
+  }
+
+  h1 {
+    font-size: 1.55em;
+  }
+
+  h2 {
+    font-size: 1.2em;
+  }
+
+  section#title {
+    padding-top: 23vh;
+  }
+
+  section#title h1 {
+    font-size: 1.85em;
+  }
+
+  section#dedication {
+    padding-top: 22vh;
+  }
+}

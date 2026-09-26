@@ -174,4 +174,4 @@ sudo journalctl -u notes-api -p err --since today
 
 ## 视频入口
 
-- systemctl 与 journalctl 练习见[视频跟做卡里的 Linux 服务日志](video-glossary.md)。中文主入口使用 B 站 journalctl 命令讲解，YouTube 的 systemctl 与 journalctl 演示作为备用入口；服务名、权限和输出以练习主机为准。
+- systemctl 与 journalctl 练习见[全书视频索引里的 Linux 服务日志](../book/frontmatter/videos.md)。中文主入口使用 B 站 journalctl 命令讲解，YouTube 的 systemctl 与 journalctl 演示作为备用入口；服务名、权限和输出以练习主机为准。

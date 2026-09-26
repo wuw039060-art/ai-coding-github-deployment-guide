@@ -19,11 +19,11 @@ ROOT = Path(__file__).resolve().parents[1]
 BOOK = ROOT / "book"
 OUT = ROOT / "dist" / "v2.3"
 AUTHOR = "Stallen"
-FRONT = ("title", "dedication", "preface", "how-to-use", "videos")
-BACK = ("glossary", "copyright")
+FRONT = ("title", "dedication", "reader-note", "contents", "preface", "how-to-use")
+BACK = ("videos", "glossary", "copyright")
 REFERENCE_NAMES = (
     "git-github", "web-deployment", "backend-database", "linux-server",
-    "docker", "mobile-release", "wechat-miniprogram", "video-glossary",
+    "docker", "mobile-release", "wechat-miniprogram",
     "testing-monitoring-incidents",
 )
 LINK = re.compile(r"(?<!!)\[([^\]]+)\]\(([^)]+)\)")
@@ -104,9 +104,9 @@ def assemble() -> tuple[list[Path], list[list[Path]], dict[Path, str]]:
     return all_paths, volumes, anchors
 
 
-def print_contents() -> str:
+def book_contents() -> str:
     manifest = json.loads((BOOK / "manifest.json").read_text(encoding="utf-8"))
-    lines = ['<section class="book-toc">', '# 目录', '']
+    lines = ['::: {.book-toc}', '# 目录 {#contents}', '', '全书按十卷组织。点击章名可以直接进入正文。', '']
     for volume in range(1, 11):
         volume_path = BOOK / "frontmatter" / f"part{volume:02d}.md"
         title = re.search(r"(?m)^# (.+)$", volume_path.read_text(encoding="utf-8")).group(1)
@@ -117,18 +117,19 @@ def print_contents() -> str:
                 label = re.search(r"(?m)^# (.+)$", chapter.read_text(encoding="utf-8")).group(1)
                 lines.append(f'- [第 {item["id"]:03d} 章　{label}](#ch-{item["id"]:03d})')
         lines.append('')
-    lines.append('</section>')
+    lines.append(':::')
     return "\n".join(lines)
 
 
-def write_markdown(paths: list[Path], anchors: dict[Path, str], target: Path, *, with_print_contents: bool = False) -> None:
+def write_markdown(paths: list[Path], anchors: dict[Path, str], target: Path) -> None:
     parts: list[str] = []
     for source in paths:
         if source.name == "cover.md":
             cover = (BOOK / "assets" / "cover.png").resolve()
             parts.append(f'<div id="pdf-cover"><img src="{cover}" alt="《AI 写代码之后》封面"></div>')
-            if with_print_contents:
-                parts.append(print_contents())
+            continue
+        if source.name == "contents.md":
+            parts.append(book_contents())
             continue
         anchor = anchors[source.resolve()]
         text = source.read_text(encoding="utf-8")
@@ -147,16 +148,20 @@ def write_markdown(paths: list[Path], anchors: dict[Path, str], target: Path, *,
 
 
 def pandoc(input_file: Path, output: Path, *, fmt: str, toc: bool = False) -> None:
+    stylesheet = "v2.3-epub.css" if fmt == "epub" else "v2.3.css"
     cmd = [
         "pandoc", str(input_file), "-f", "markdown-implicit_figures",
         "--standalone", "--metadata", "lang=zh-CN",
         "--metadata", "title=AI 写代码之后", "--metadata", f"author={AUTHOR}", "--css",
-        str(BOOK / "assets" / "styles" / "v2.3.css"),
+        str(BOOK / "assets" / "styles" / stylesheet),
     ]
     if toc:
         cmd += ["--toc", "--toc-depth=1"]
     if fmt == "epub":
-        cmd += ["-t", "epub3", "--epub-cover-image", str(BOOK / "assets" / "cover.png")]
+        cmd += [
+            "-t", "epub3", "--epub-title-page=false",
+            "--epub-cover-image", str(BOOK / "assets" / "cover.png"),
+        ]
     elif fmt == "html":
         cmd += ["-t", "html5", "--embed-resources"]
     else:
@@ -196,7 +201,7 @@ def main() -> None:
         pandoc(full_md, epub, fmt="epub", toc=True)
         remove_navigation_from_reading_order(epub)
     pdf_md = OUT / "AI写代码之后-v2.3.0-print.md"
-    write_markdown([BOOK / "frontmatter" / "cover.md", *all_paths], anchors, pdf_md, with_print_contents=True)
+    write_markdown([BOOK / "frontmatter" / "cover.md", *all_paths], anchors, pdf_md)
     pandoc(pdf_md, OUT / "AI写代码之后-v2.3.0-print.html", fmt="html")
     preview_sections = [[BOOK / "frontmatter" / "cover.md", *all_paths[:len(FRONT)]]]
     preview_sections += volumes

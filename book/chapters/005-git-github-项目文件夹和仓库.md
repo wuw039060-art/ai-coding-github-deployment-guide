@@ -90,5 +90,3 @@ README 是入口说明，Issue 记录问题或任务，Pull Request 展示准备
 新项目可以先在 GitHub 创建仓库再 Clone；已有本地项目可以先初始化 Git，再发布远程。两条路线都正确。关键是认清哪边已有内容，不要让本地、网页和复制目录分别产生无关初始历史，再靠覆盖解决。
 
 具体命令、GitHub Desktop 按钮和恢复动作见[《Git 与 GitHub 操作参考》](../../references/git-github.md)。本章掌握边界是能区分文件夹、本地仓库和远程仓库，能读出路径、分支和状态，知道保存、Commit 与 Push 发生在哪里。Rebase、Submodule、Cherry-pick 和复杂 Reset 暂时可以跳过。
-
-AI 适合只读列结构、Git 状态、当前分支和远程地址，或根据 Diff 建议提交拆分。让它先不 Commit、不 Push、不清理文件。创建仓库时由人确认所有者与可见性；提交前看 Diff，推送前核对远程与分支；历史重写和删除必须先说明会失去什么以及如何恢复。

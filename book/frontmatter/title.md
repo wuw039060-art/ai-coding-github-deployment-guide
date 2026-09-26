@@ -1,7 +1,9 @@
 # AI 写代码之后
 
-给非专业开发者的 AI Coding 工程手册
+<div class="book-subtitle">给非专业开发者的 AI Coding 工程手册</div>
 
-写给从 AI Coding 起步、希望理解工程全貌并能检查真实交付结果的人
+<div class="book-audience">写给从 AI Coding 起步，希望看懂工程全貌、辨认风险，并能亲手检查真实交付结果的人。</div>
 
-Stallen
+<div class="book-author">Stallen　著</div>
+
+<div class="book-edition">独立数字版 · v2.3.0</div>

@@ -66,7 +66,7 @@ Archive succeeded、upload succeeded、Processing 完成、Ready to Test、进�
 - `VID 008` 使用 B 站 iOS 上架全流程视频作为主入口，用于辨认 Bundle ID、应用记录、Archive 与上传。Flutter 官方 iOS 发布视频作为备用入口。
 - `VID 009` 使用 B 站 App Store 上架流程分享作为主入口，用于辨认测试组、审核准备和设备安装。TestFlight 操作视频作为备用入口。
 
-完整卡片见[视频跟做卡与术语索引](video-glossary.md)。视频不替代 Apple 当前构建要求和审核资料。
+完整卡片见[全书视频索引](../book/frontmatter/videos.md)。视频不替代 Apple 当前构建要求和审核资料。
 
 ## Android / Google Play 发布身份卡
 
@@ -200,4 +200,4 @@ AAB 校验和：
 
 ## 视频入口
 
-- Play Console 页面辨认见[视频跟做卡里的 Google Play 发布界面](video-glossary.md)。这一项暂时使用 YouTube 入口。视频从创建应用走向发布；练习时必须把目标改为内部测试，所有政策字段以自己的当前控制台为准。
+- Play Console 页面辨认见[全书视频索引里的 Google Play 发布界面](../book/frontmatter/videos.md)。这一项暂时使用 YouTube 入口。视频从创建应用走向发布；练习时必须把目标改为内部测试，所有政策字段以自己的当前控制台为准。

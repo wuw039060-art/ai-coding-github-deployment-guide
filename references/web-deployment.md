@@ -95,4 +95,4 @@ Timing 主要阶段：
 
 ## 视频入口
 
-- Chrome Console 与 Network 入门见[视频跟做卡里的 Chrome DevTools 入门演示](video-glossary.md)。中文主入口使用 B 站 DevTools 完整指南，YouTube 官方视频作为备用入口；面板位置和筛选语法应按当前浏览器复核。
+- Chrome Console 与 Network 入门见[全书视频索引里的 Chrome DevTools 入门演示](../book/frontmatter/videos.md)。中文主入口使用 B 站 DevTools 完整指南，YouTube 官方视频作为备用入口；面板位置和筛选语法应按当前浏览器复核。
